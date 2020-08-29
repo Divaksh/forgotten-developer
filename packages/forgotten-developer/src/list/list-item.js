@@ -34,10 +34,10 @@ const Item = ({ state, item }) => {
         <PublishDate>
           Compiled on <b>{date.toDateString()}</b>
         </PublishDate>
-        <PublishDate>
+        <PublishIn>
           {" "}
           in <b>{state.source.category[item.categories[0]].name}</b>
-        </PublishDate>
+        </PublishIn>
       </div>
 
       {/*
@@ -76,6 +76,10 @@ const StyledLink = styled(Link)`
 `;
 
 const PublishDate = styled.span`
+  font-size: 16px !important;
+`;
+
+const PublishIn = styled.span`
   font-size: 16px !important;
 `;
 
