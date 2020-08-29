@@ -15,7 +15,6 @@
   "dependencies": {
     "@frontity/core": "^1.7.3",
     "@frontity/html2react": "^1.3.5",
-    "@frontity/mars-theme": "./packages/mars-theme",
     "@frontity/tiny-router": "^1.2.1",
     "@frontity/wp-source": "^1.8.1",
     "forgotten-developer": "file:packages/forgotten-developer",

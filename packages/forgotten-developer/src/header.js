@@ -6,8 +6,10 @@ import Link from "./link";
 const Header = ({ state, actions }) => {
   const data = state.source.get(state.router.link);
   const post = state.source[data.type][data.id];
+
   return (
     <>
+      {/* Change StickyBar CSS colors based on the post types*/}
       <StickyBar isPostType={data.isPostType}>
         <LogoGroup>
           <LogoIcon>
@@ -16,13 +18,18 @@ const Header = ({ state, actions }) => {
           <LogoText>
             <Title>
               <Link link="/">{state.frontity.title}</Link>
-              {data.isPost && "/"}
             </Title>
           </LogoText>
         </LogoGroup>
-        <StickyPostTitle>
-          {data.isPost && " " + post.title.rendered}
-        </StickyPostTitle>
+        {/* Show sticky post title for the post page*/}
+        {data.isPost ? (
+          <>
+            <StickyPostTitleSeparator>/</StickyPostTitleSeparator>
+            <StickyPostTitle
+              dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+            />
+          </>
+        ) : null}
         <MenuButton>{/*   <Menu /> */}</MenuButton>
       </StickyBar>
     </>
@@ -100,6 +107,11 @@ const Title = styled.span`
       -moz-osx-font-smoothing: grayscale;
     }
   }
+`;
+
+const StickyPostTitleSeparator = styled.span`
+  font-size: 36px !important;
+  font-weight: 700 !important;
 `;
 
 const StickyPostTitle = styled.span`
