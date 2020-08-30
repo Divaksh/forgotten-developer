@@ -25,12 +25,20 @@ const Root = ({ state, actions }) => {
           src="https://kit.fontawesome.com/6e87086a0b.js"
           crossorigin="anonymous"
         ></script>
+
+        {/* Scripts for Syntax Highlighting*/}
         <link
           rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/themes/prism-twilight.min.css"
-          integrity="sha512-akb4nfKzpmhujLUyollw5waBPeohuVf0Z5+cL+4Ngc4Db+V8szzx6ZTujguFjpmD076W8LImVIbOblmQ+vZMKA=="
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/xt256.min.css"
+          integrity="sha512-+UmrCjqI0SKFVW/suGRZfjFnI/3bL4duzijGZ03dfmkkaj0QTj1A6k6nX64Zf4rVFfEVavAb7JOXJVn/gIUSvw=="
           crossorigin="anonymous"
         />
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"
+          integrity="sha512-7t8APmYpzEsZP7CYoA7RfMPV9Bb+PJHa9x2WiUnDXZx3XHveuyWUtvNOexhkierl5flZ3tr92dP1mMS+SGlD+A=="
+          crossorigin="anonymous"
+        ></script>
+        <script>hljs.initHighlightingOnLoad();</script>
       </Head>
 
       <Global
