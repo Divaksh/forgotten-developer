@@ -1,11 +1,11 @@
-import Root from "./Root";
+import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
 
 export default {
   name: "forgotten-developer",
   roots: {
-    theme: Root,
+    theme: Theme,
   },
   state: {
     theme: {

@@ -8,7 +8,7 @@ import Nav from "./nav";
 
 import { Global, css, styled } from "frontity";
 
-const Root = ({ state, actions }) => {
+const Theme = ({ state, actions }) => {
   const data = state.source.get(state.router.link);
 
   return (
@@ -139,7 +139,7 @@ const Root = ({ state, actions }) => {
   );
 };
 
-export default connect(Root);
+export default connect(Theme);
 
 const Main = styled.div`
   max-width: 100%;
