@@ -2,12 +2,20 @@ import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
 
-export default {
+const forgottenDeveloper = {
   name: "forgotten-developer",
   roots: {
+    /**
+     *  In Frontity, any package can add React components to the site.
+     *  We use roots for that, scoped to the `theme` namespace.
+     */
     theme: Theme,
   },
   state: {
+    /**
+     * State is where the packages store their default settings and other
+     * relevant state. It is scoped to the `theme` namespace.
+     */
     theme: {
       menu: [],
       isMenuOpen: false,
@@ -17,6 +25,10 @@ export default {
       },
     },
   },
+  /**
+   * Actions are functions that modify the state or deal with other parts of
+   * Frontity like libraries.
+   */
   actions: {
     theme: {
       openMenu: ({ state }) => {
@@ -37,3 +49,5 @@ export default {
     },
   },
 };
+
+export default forgottenDeveloper;

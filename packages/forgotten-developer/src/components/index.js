@@ -8,11 +8,17 @@ import Nav from "./nav";
 
 import { Global, css, styled } from "frontity";
 
+/**
+ * Theme is the root React component of our theme. The one we will export
+ * in roots.
+ */
 const Theme = ({ state, actions }) => {
+  // Get information about the current URL.
   const data = state.source.get(state.router.link);
 
   return (
     <>
+      {/* Add some metatags to the <head> of the HTML. */}
       <Title />
       <Head>
         <meta name="description" content={state.frontity.description} />
@@ -41,80 +47,15 @@ const Theme = ({ state, actions }) => {
         <script>hljs.initHighlightingOnLoad();</script>
       </Head>
 
-      <Global
-        styles={css`
-          body {
-            margin: 0;
-            font-family: "Source Code Pro", monospace;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            background: #11100f;
-            color: white;
-          }
+      {/* Add some global styles for the whole site, like body or a's. 
+      Not classes here because we use CSS-in-JS. Only global HTML tags. */}
+      <Global styles={globalStyles} />
 
-          a {
-            color: white;
-            text-decoration: none;
-            background: linear-gradient(180deg, #4285f4, #2a65f8);
-            background-repeat: no-repeat;
-            background-size: 100% 0.1em;
-            background-position: 0 88%;
-            transition: background-size 0.25s ease-in;
-            &:hover {
-              background-size: 100% 88%;
-              color: black;
-            }
-          }
-
-          /* Ham Menu*/
-          .ham-menu {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: transform 330ms ease-out;
-            float: right;
-          }
-
-          .ham-menu.open {
-            transform: rotate(-45deg);
-          }
-
-          .line-menu {
-            background-color: #fff;
-            border-radius: 5px;
-            width: 100%;
-            height: 6px;
-          }
-
-          .line-menu.half {
-            width: 50%;
-          }
-
-          .line-menu.start {
-            transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
-            transform-origin: right;
-          }
-
-          .open .line-menu.start {
-            transform: rotate(-90deg) translateX(3px);
-          }
-
-          .line-menu.end {
-            align-self: flex-end;
-            transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
-            transform-origin: left;
-          }
-
-          .open .line-menu.end {
-            transform: rotate(-90deg) translateX(-3px);
-          }
-        `}
-      />
-
+      {/* Add the header of the site. */}
       <Header />
+
+      {/* Add the main section. It renders a different component depending
+      on the type of URL we are in. */}
       <Main>
         <Nav />
         <PostsCotainer>
@@ -140,6 +81,77 @@ const Theme = ({ state, actions }) => {
 };
 
 export default connect(Theme);
+
+const globalStyles = css`
+  body {
+    margin: 0;
+    font-family: "Source Code Pro", monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #11100f;
+    color: white;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(180deg, #4285f4, #2a65f8);
+    background-repeat: no-repeat;
+    background-size: 100% 0.1em;
+    background-position: 0 88%;
+    transition: background-size 0.25s ease-in;
+    &:hover {
+      background-size: 100% 88%;
+      color: black;
+    }
+  }
+
+  /* Ham Menu*/
+  .ham-menu {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 330ms ease-out;
+    float: right;
+  }
+
+  .ham-menu.open {
+    transform: rotate(-45deg);
+  }
+
+  .line-menu {
+    background-color: #fff;
+    border-radius: 5px;
+    width: 100%;
+    height: 6px;
+  }
+
+  .line-menu.half {
+    width: 50%;
+  }
+
+  .line-menu.start {
+    transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    transform-origin: right;
+  }
+
+  .open .line-menu.start {
+    transform: rotate(-90deg) translateX(3px);
+  }
+
+  .line-menu.end {
+    align-self: flex-end;
+    transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    transform-origin: left;
+  }
+
+  .open .line-menu.end {
+    transform: rotate(-90deg) translateX(-3px);
+  }
+`;
 
 const Main = styled.div`
   max-width: 100%;
