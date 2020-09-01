@@ -56,6 +56,7 @@ const StickyBar = styled.header`
   position: sticky;
   top: 0;
   border-bottom: 1px solid #454545;
+  z-index: 999;
 
   @keyframes blinker {
     50% {
