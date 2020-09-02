@@ -38,13 +38,14 @@ const Post = ({ state, actions, libraries }) => {
           {/* Only display author and date on posts */}
           {data.isPost && (
             <div>
-              {author && (
+              {/*}              {author && (
                 <StyledLink link={author.link}>
                   <Author>
                     By <b>{author.name}</b>
                   </Author>
                 </StyledLink>
               )}
+              */}
               <DateWrapper>
                 {" "}
                 Compiled on <b>{date.toDateString()}</b>

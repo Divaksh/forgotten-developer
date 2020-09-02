@@ -24,13 +24,14 @@ const Item = ({ state, item }) => {
 
       <div>
         {/* If the post has an author, we render a clickable author text. */}
-        {author && (
+        {/*}       {author && (
           <StyledLink link={author.link}>
             <AuthorName>
               By <b>{author.name}</b>
             </AuthorName>
           </StyledLink>
         )}
+        */}
         <PublishDate>
           Compiled on <b>{date.toDateString()}</b>
         </PublishDate>
@@ -65,6 +66,23 @@ const Title = styled.h1`
   padding-top: 24px;
   padding-bottom: 8px;
   box-sizing: border-box;
+
+  && ::before {
+    font-size: 26px;
+    color: #fff;
+    content: "cd ";
+    text-indent: 0px;
+    letter-spacing: -20px;
+    opacity: 0;
+    transition: letter-spacing 0.3s ease-out, opacity 0.3s ease-out;
+    text-decoration: none;
+  }
+  && :hover::before {
+    text-indent: 0px;
+    letter-spacing: normal;
+    opacity: 1;
+    text-decoration: none;
+  }
 `;
 
 const AuthorName = styled.span`
