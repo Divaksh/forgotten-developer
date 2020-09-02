@@ -2,6 +2,7 @@ import React from "react";
 import { connect, styled } from "frontity";
 import Menu from "./menu";
 import Link from "./link";
+import { FaTerminal } from "react-icons/fa";
 
 const Header = ({ state, actions }) => {
   const data = state.source.get(state.router.link);
@@ -13,7 +14,7 @@ const Header = ({ state, actions }) => {
       <StickyBar isPostType={data.isPostType}>
         <LogoGroup>
           <LogoIcon>
-            <i className="fas fa-terminal"></i>
+            <FaTerminal color="#0f0" style={{ marginBottom: "-6px" }} />
           </LogoIcon>
           <LogoText>
             <Title>
@@ -75,12 +76,6 @@ const LogoGroup = styled.div`
 const LogoIcon = styled.span`
   margin-right: 4px;
   animation: blinker 0.8s step-start infinite;
-  background-image: linear-gradient(90deg, #3e74f9, #6ddb90);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
 `;
 
 const LogoText = styled.span`
@@ -92,20 +87,9 @@ const Title = styled.span`
   margin: 0;
   margin-bottom: 16px;
   a {
-    color: white;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background: none;
     text-decoration: none;
     &:hover {
-      background-image: linear-gradient(90deg, #3e74f9, #6ddb90);
-      background-size: 100%;
-      -webkit-background-clip: text;
-      -moz-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      -moz-text-fill-color: transparent;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      color: #0f0;
     }
   }
 `;

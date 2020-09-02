@@ -27,10 +27,6 @@ const Theme = ({ state, actions }) => {
           href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
           rel="stylesheet"
         ></link>
-        <script
-          src="https://kit.fontawesome.com/6e87086a0b.js"
-          crossorigin="anonymous"
-        ></script>
 
         {/* Scripts for Syntax Highlighting*/}
         <link
@@ -94,15 +90,10 @@ const globalStyles = css`
 
   a {
     color: white;
-    text-decoration: none;
-    background: linear-gradient(180deg, #4285f4, #2a65f8);
-    background-repeat: no-repeat;
-    background-size: 100% 0.1em;
-    background-position: 0 88%;
-    transition: background-size 0.25s ease-in;
+    text-decoration: underline;
+    text-decoration-color: #0f0;
     &:hover {
-      background-size: 100% 88%;
-      color: black;
+      color: #0f0;
     }
   }
 
