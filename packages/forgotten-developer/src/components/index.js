@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, Head } from "frontity";
 import List from "./list/list";
-import Post from "./Post";
+import Post from "./post";
 import Header from "./header";
 import Title from "./title";
 import Nav from "./nav";
