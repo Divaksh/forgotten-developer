@@ -23,6 +23,7 @@ const Post = ({ state, actions, libraries }) => {
    * the home page, everything is ready and it loads instantly.
    */
   useEffect(() => {
+    Prism.highlightAll();
     actions.source.fetch("/");
     List.preload();
   }, []);
@@ -90,6 +91,32 @@ const Content = styled.div`
     max-width: 100%;
     height: 100%;
   }
+
+  
+  :not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background: rgba(40, 41, 54, 1);
+    border-radius: .75em;
+    border: .3em solid hsl(0, 0%, 33%);
+    box-shadow: 1px 1px 0.5em black inset;
+  }
+
+  pre[class*="language-"] {
+    background: hsl(0, 0%, 8%) !important;
+  }
+
+  code[class*="language-"], pre[class*="language-"] {
+    background: hsl(0, 0%, 8%) !important;
+  }
+
+  pre::-webkit-scrollbar-thumb {
+    background-color: #4CAF50;
+    border-radius: 15px;
+}
+
+pre::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 15px;
+}
 `;
 
 const PublishIn = styled.span`
