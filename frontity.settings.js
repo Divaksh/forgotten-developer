@@ -14,9 +14,9 @@ const settings = {
         theme: {
           menu: [
             ["Home", "/"],
-            ["Java", "/category/programming/java/"],
-            ["JavaScript", "/category/programming/javascript/"],
-            ["C", "/category/programming/c/"],
+            ["Java", "/programming/java/"],
+            ["JavaScript", "/programming/javascript/"],
+            ["C", "/programming/c/"],
             ["About Us", "/about-us/"],
           ],
           featured: {
@@ -36,6 +36,7 @@ const settings = {
     },
     "@frontity/tiny-router",
     "@frontity/html2react",
+	"@frontity/head-tags",
   ],
 };
 
