@@ -21,6 +21,10 @@ const Theme = ({ state, actions }) => {
       {/* Add some metatags to the <head> of the HTML. */}
       <Title />
       <Head>
+          {/* Added IMGHASTE CDN */}
+          <meta http-equiv="Accept-CH" content="Width, Viewport-Width, DPR, Downlink, Save-Data, Device-Memory, RTT, ECT"/>
+          <script src='https://cdn.imghaste.com/sw/sdk.js?f=image-service.ih.js'></script>
+
         <meta name="description" content={state.frontity.description} />
         <html lang="en" />
         <link
