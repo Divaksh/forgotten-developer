@@ -1,5 +1,3 @@
-import "./image-service.ih";
-
 import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
