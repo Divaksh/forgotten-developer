@@ -1,5 +1,3 @@
-import "./image-service.ih";
-
 import Theme from "./components";
 import prismProcessor from "./processors/prism";
 
