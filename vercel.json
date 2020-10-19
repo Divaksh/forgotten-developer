@@ -3,6 +3,10 @@
   "version": 2,
   "builds": [
     {
+      "src": "package.json",
+      "use": "@frontity/now"
+    },
+    {
       "src": "build/static/**/*",
       "use": "@now/static"
     },
