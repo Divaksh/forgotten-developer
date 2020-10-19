@@ -32,11 +32,7 @@ const Theme = ({ state, actions }) => {
           rel="stylesheet"
         ></link>
 
-        {/* Scripts for Syntax Highlighting*/}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/prism.min.js" integrity="sha512-WkVkkoB31AoI9DAk6SEEEyacH9etQXKUov4JRRuM1Y681VsTq7jYgrRw06cbP6Io7kPsKx+tLFpH/HXZSZ2YEQ==" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/components/prism-java.min.js" integrity="sha512-p2vAaPEsPvlIESCpoEI5IyzZowfdVZ2O39PsrOrkuTQl+AjD57T4L/Wxv5S8WCToLou0twQZaWO+tt660Rqb6Q==" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/components/prism-javascript.min.js" integrity="sha512-bcEaqkUmZaRn/mfetUNsz6y4SxOcc+eEqXOzWYWeXfSUS9mt1C/12fBAxT99mKcA1U1tIw6O9o17+AGqQ3Wmtg==" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js" integrity="sha512-VTY+zyTivsIMZ+ANMHvwsnz0hIRHyu/I+7vLqaGaQs//PnQEuNyrLsCwNYo64H92vHojvj2Oiq7bfli0fTSDkQ==" crossorigin="anonymous"></script>
+        {/* Styling for Syntax Highlighting*/}
         <link rel="stylesheet" href="https://unpkg.com/dracula-prism/css/dracula-prism.css" />
 
       </Head>
