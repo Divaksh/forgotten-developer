@@ -16,7 +16,6 @@ const Code = ({ className, children }) => {
     const language = result[1];
     children = Prism.highlight(children, Prism.languages[language], language);
   } catch (e) {
-      console.log(e)
     warn(
       `An incorrect "${className}" CSS class has been specified on the <code> element so no syntax highlighting was applied. It could be because this language is not recognized by prism.js or because of a typo.`
     );
