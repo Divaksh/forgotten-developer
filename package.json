@@ -20,6 +20,7 @@
     "@frontity/wp-source": "^1.9.1",
     "forgotten-developer": "file:packages/forgotten-developer",
     "frontity": "^1.12.0",
+    "prismjs": "^1.22.0",
     "react-icons": "^3.11.0",
     "yarn": "^1.22.10"
   }
