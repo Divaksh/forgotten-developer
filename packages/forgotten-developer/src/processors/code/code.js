@@ -13,7 +13,6 @@ import 'prismjs/components/prism-docker';
 import 'prismjs/components/prism-http';
 import 'prismjs/components/prism-ignore';
 import 'prismjs/components/prism-nginx';
-import 'prismjs/components/prism-php';
 import 'prismjs/components/prism-powershell';
 import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-jsx';
@@ -21,6 +20,7 @@ import 'prismjs/components/prism-regex';
 import 'prismjs/components/prism-robotframework';
 import 'prismjs/components/prism-sql';
 import 'prismjs/components/prism-typescript';
+//import 'prismjs/components/prism-php';  // php is disabling other languages
 
 // Disable the automatic code highlighting of all `<code>` elements on the
 // client because we are doing it ourselves with a processors.
