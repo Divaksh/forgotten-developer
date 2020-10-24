@@ -1,1 +1,0 @@
-self.importScripts('https://cdn.imghaste.com/v1/cdn.divaksh.com/service-worker.js');

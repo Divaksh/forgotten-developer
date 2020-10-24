@@ -23,7 +23,6 @@ const Post = ({ state, actions, libraries }) => {
    * the home page, everything is ready and it loads instantly.
    */
   useEffect(() => {
-    Prism.highlightAll();
     actions.source.fetch("/");
     List.preload();
   }, []);
