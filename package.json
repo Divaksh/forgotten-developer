@@ -19,6 +19,7 @@
     "@frontity/html2react": "^1.4.0",
     "@frontity/tiny-router": "^1.2.2",
     "@frontity/wp-source": "^1.9.1",
+    "@frontity/yoast": "^2.0.1",
     "forgotten-developer": "file:packages/forgotten-developer",
     "frontity": "^1.12.0",
     "prismjs": "^1.22.0",
