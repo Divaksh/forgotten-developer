@@ -6,6 +6,9 @@ const settings = {
       title: "Divaksh",
       description: "A retired developer back in action",
     },
+    sitemap: {
+      origin: "https://api.divaksh.com"
+    }
   },
   packages: [
     {
