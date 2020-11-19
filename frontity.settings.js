@@ -46,6 +46,7 @@ const settings = {
     "@frontity/html2react",
     "@frontity/head-tags",
     "@frontity/yoast",
+    "@frontity/wp-comments"
   ],
 };
 

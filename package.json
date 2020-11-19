@@ -18,6 +18,7 @@
     "@frontity/head-tags": "^1.0.7",
     "@frontity/html2react": "^1.4.0",
     "@frontity/tiny-router": "^1.2.2",
+    "@frontity/wp-comments": "^0.2.4",
     "@frontity/wp-source": "^1.9.1",
     "@frontity/yoast": "^2.0.1",
     "forgotten-developer": "file:packages/forgotten-developer",
