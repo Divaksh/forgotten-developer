@@ -7,7 +7,7 @@ const settings = {
       description: "A retired developer back in action",
     },
     sitemap: {
-      origin: "https://api.divaksh.com"
+      origin: "https://api.divaksh.com/post-sitemap.xml"
     }
   },
   packages: [
@@ -17,9 +17,11 @@ const settings = {
         theme: {
           menu: [
             ["Home", "/"],
-            ["Java", "/programming/java/"],
-            ["JavaScript", "/programming/javascript/"],
-            ["C", "/programming/c/"],
+            ["Git", "/git/"],
+            ["Java", "/java/"],
+            ["JavaScript", "/javascript/"],
+            ["C", "/c/"],
+            ["HTTP", "/http/"],
             ["About Us", "/about-us/"],
           ],
           featured: {
