@@ -37,31 +37,38 @@ const Theme = ({ state, actions }) => {
       Not classes here because we use CSS-in-JS. Only global HTML tags. */}
       <Global styles={globalStyles} />
 
-      {/* Add the header of the site. */}
-      <Header />
 
-      {/* Add the main section. It renders a different component depending
-      on the type of URL we are in. */}
-      <Main>
-        <Nav />
-        <PostsCotainer>
-          {data.isArchive && (
-            <div>
-              <List />
-            </div>
-          )}
-          {data.isPost && (
-            <div>
-              <Post />
-            </div>
-          )}
-          {data.isPage && (
-            <div>
-              <Post />
-            </div>
-          )}
-        </PostsCotainer>
-      </Main>
+
+      {/* Main container of the site. */}
+      <Container>
+
+        {/* Add the header of the site. */}
+        <Header />
+
+        {/* Add the main section. It renders a different component depending
+        on the type of URL we are in. */}
+        <Main>
+          <Nav />
+          <PostsCotainer>
+            {data.isArchive && (
+              <div>
+                <List />
+              </div>
+            )}
+            {data.isPost && (
+              <div>
+                <Post />
+              </div>
+            )}
+            {data.isPage && (
+              <div>
+                <Post />
+              </div>
+            )}
+          </PostsCotainer>
+        </Main>
+        <Footer></Footer>
+      </Container>
     </>
   );
 };
@@ -76,6 +83,7 @@ const globalStyles = css`
     -moz-osx-font-smoothing: grayscale;
     background: #11100f;
     color: white;
+    overflow: hidden;
   }
 
   a {
@@ -87,79 +95,56 @@ const globalStyles = css`
     }
   }
 
-  /* Ham Menu*/
-  .ham-menu {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    transition: transform 330ms ease-out;
-    float: right;
+  ::selection {
+    text-shadow: none;
+    background-color: #00ff00 !important;
+    color: #000;
   }
 
-  .ham-menu.open {
-    transform: rotate(-45deg);
-  }
+  /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
 
-  .line-menu {
-    background-color: #fff;
-    border-radius: 5px;
-    width: 100%;
-    height: 6px;
-  }
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0c0; 
+  border-radius: 10px;
+}
 
-  .line-menu.half {
-    width: 50%;
-  }
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0f0; 
+}
+`;
 
-  .line-menu.start {
-    transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
-    transform-origin: right;
-  }
-
-  .open .line-menu.start {
-    transform: rotate(-90deg) translateX(3px);
-  }
-
-  .line-menu.end {
-    align-self: flex-end;
-    transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
-    transform-origin: left;
-  }
-
-  .open .line-menu.end {
-    transform: rotate(-90deg) translateX(-3px);
-  }
+const Container = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 30px 1fr 30px;
 `;
 
 const Main = styled.div`
-  max-width: 100%;
-  box-sizing: border-box;
-  overflow-wrap: break-word;
-  padding: 2%;
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const SideBar = styled.div`
-  box-sizing: border-box;
-  overflow-wrap: break-word;
-  margin: 24px 0 0 0;
-  display: block;
-  padding: 10px;
-  flex-basis: 15rem;
-  flex-grow: 1;
-  top: 64px;
-  width: 30%;
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  overflow: hidden;
+  margin-top: 30px;
 `;
 
 const PostsCotainer = styled.div`
-  flex-basis: 0;
-  flex-grow: 999;
-  min-width: 66%;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 0;
+  overflow-y: scroll;
+  padding: 24px;
+  margin-bottom: 140px; /* 120px for solution and 20px for footer */
+`;
+
+const Footer = styled.div`
+  border-top: 1px solid lightgrey;
 `;

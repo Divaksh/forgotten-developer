@@ -63,7 +63,6 @@ export default connect(Item);
 const Title = styled.h1`
   font-size: 30px;
   margin: 0;
-  padding-top: 24px;
   padding-bottom: 8px;
   box-sizing: border-box;
 
