@@ -2,41 +2,70 @@ import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
 
-const Menu = ({ state, actions }) => {
-  return (
-    <>
-      {state.theme.isMenuOpen ? (
-        <>
-          <MenuButton onClick={actions.theme.closeMenu}>
-            <div className="ham-menu open">
-              <div className="line-menu half start"></div>
-              <div className="line-menu"></div>
-              <div className="line-menu half end"></div>
-            </div>
-          </MenuButton>
-          <NavBar>
-            <Link link="/">Home</Link>
-          </NavBar>
-        </>
-      ) : (
-        <MenuButton onClick={actions.theme.openMenu}>
-          <div className="ham-menu">
-            <div className="line-menu half start"></div>
-            <div className="line-menu"></div>
-            <div className="line-menu half end"></div>
-          </div>
-        </MenuButton>
-      )}
-    </>
-  );
-};
-// Connect the Menu component to get access to the `state` in it's `props`
-export default connect(Menu);
+/**
+ * Navigation Component
+ *
+ * It renders the navigation links
+ */
+const Nav = ({ state }) => (
+  <NavContainer>
+    {state.theme.menu.map(([name, link]) => {
+      // Check if the link matched the current page url
+      const isCurrentPage = state.router.link === link;
+      return (
+        <NavItem key={name}>
+          {/* If link url is the current page, add `aria-current` for a11y */}
+          <Link link={link} aria-current={isCurrentPage ? "page" : undefined}>
+            {name}
+          </Link>
+        </NavItem>
+      );
+    })}
+  </NavContainer>
+);
 
-const MenuButton = styled.div`
-  color: white;
+export default connect(Nav);
+
+const NavContainer = styled.nav`
+  list-style: none;
+  display: flex;
+  width: 848px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 24px;
+  margin: 0;
+  overflow-x: auto;
+  @media screen and (max-width: 560px) {
+    display: none;
+  }
 `;
 
-const NavBar = styled.nav`
-  margin: 16px;
+const NavItem = styled.div`
+  padding: 0;
+  margin: 0 16px;
+  color: #fff;
+  font-size: 0.9em;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  & > a {
+    display: inline-block;
+    line-height: 2em;
+    border-bottom: 2px solid;
+    border-bottom-color: transparent;
+    /* Use for semantic approach to style the current link */
+    &[aria-current="page"] {
+      border-bottom-color: #fff;
+    }
+  }
+  &:first-of-type {
+    margin-left: 0;
+  }
+  &:last-of-type {
+    margin-right: 0;
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 24px;
+    }
+  }
 `;
