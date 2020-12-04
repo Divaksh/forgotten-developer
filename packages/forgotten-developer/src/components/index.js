@@ -1,12 +1,13 @@
 import React from "react";
-import { connect, Head } from "frontity";
+import { Global, css, connect, styled, Head } from "frontity";
+import Switch from "@frontity/components/switch";
+import Header from "./header";
 import List from "./list/list";
 import Post from "./post";
-import Header from "./header";
+import Loading from "./loading";
 import Title from "./title";
+import PageError from "./page-error";
 import Nav from "./nav";
-
-import { Global, css, styled } from "frontity";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -50,21 +51,12 @@ const Theme = ({ state, actions }) => {
         <Main>
           <Nav />
           <PostsCotainer>
-            {data.isArchive && (
-              <div>
-                <List />
-              </div>
-            )}
-            {data.isPost && (
-              <div>
-                <Post />
-              </div>
-            )}
-            {data.isPage && (
-              <div>
-                <Post />
-              </div>
-            )}
+            <Switch>
+              <Loading when={data.isFetching} />
+              <List when={data.isArchive} />
+              <Post when={data.isPostType} />
+              <PageError when={data.isError} />
+            </Switch>
           </PostsCotainer>
         </Main>
         <Footer></Footer>
