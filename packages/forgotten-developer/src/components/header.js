@@ -41,8 +41,7 @@ const Header = ({ state, actions }) => {
 export default connect(Header);
 
 const StickyBar = styled.header`
-  width: 100%;
-  max-width: 100%;
+  width: 100vw;
   box-sizing: border-box;
   padding: 10px 0 10px 24px;
   color: #fff;
@@ -50,7 +49,6 @@ const StickyBar = styled.header`
   ${(props) =>
     props.isPostType ? "background-color: black" : "background-color: black"};
 
-  width: inherited;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -84,8 +82,6 @@ const LogoText = styled.span`
 `;
 
 const Title = styled.span`
-  margin: 0;
-  margin-bottom: 16px;
   a {
     text-decoration: none;
     &:hover {
@@ -95,16 +91,18 @@ const Title = styled.span`
 `;
 
 const StickyPostTitleSeparator = styled.span`
-  font-size: 36px !important;
+  font-size: 30px !important;
   font-weight: 700 !important;
 `;
 
 const StickyPostTitle = styled.span`
   font-weight: 700 !important;
   font-size: 24px !important;
+  margin-top: 5px;
   @media screen and (max-width: 768px) {
     display: none;
   }
+  
 `;
 
 const MenuButton = styled.span`

@@ -91,7 +91,6 @@ const Content = styled.div`
     height: 100%;
   }
 
-  
   :not(pre) > code[class*="language-"], pre[class*="language-"] {
     background: rgba(40, 41, 54, 1);
     border-radius: .75em;
@@ -108,14 +107,20 @@ const Content = styled.div`
   }
 
   pre::-webkit-scrollbar-thumb {
-    background-color: #4CAF50;
+    background-color: #0c0;
     border-radius: 15px;
-}
+  }
 
-pre::-webkit-scrollbar-track {
-  background-color: transparent;
-  border-radius: 15px;
-}
+  pre::-webkit-scrollbar-thumb:hover {
+    background-color: #0f0;
+    border-radius: 15px;
+  } 
+
+  pre::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 15px;
+  }
+
 `;
 
 const PublishIn = styled.span`

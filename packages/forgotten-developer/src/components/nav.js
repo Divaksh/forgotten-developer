@@ -27,46 +27,36 @@ const Nav = ({ state }) => (
 export default connect(Nav);
 
 const NavContainer = styled.nav`
-  box-sizing: border-box;
-  overflow-wrap: break-word;
-  margin: 24px 0 0 0;
-  display: block;
-  padding: 10px;
-  flex-basis: 15rem;
-  flex-grow: 1;
-  top: 64px;
-  width: 33%;
+/* define a fixed width for the entire menu */
+  padding: 24px;
+  width: 75%;
+  height: 100vh;
+  overflow-y: auto;
+  background: hsl(0,0%,8%) !important;
+  box-shadow: 1px 1px 0.5em black inset;
   @media screen and (max-width: 560px) {
     display: none;
   }
+
+a {
+/*  background-color: #eee; 
+  color: black; */
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+a:hover {
+  background: hsl(0,0%,10%) !important;
+}
+
+a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
 `;
 
 const NavItem = styled.div`
-  padding: 0;
-  margin: 0 16px;
-  color: #fff;
-  font-size: 0.9em;
-  box-sizing: border-box;
-  flex-shrink: 0;
-  & > a {
-    display: inline-block;
-    line-height: 2em;
-    border-bottom: 2px solid;
-    border-bottom-color: transparent;
-    /* Use for semantic approach to style the current link */
-    &[aria-current="page"] {
-      border-bottom-color: #fff;
-    }
-  }
-  &:first-of-type {
-    margin-left: 0;
-  }
-  &:last-of-type {
-    margin-right: 0;
-    &:after {
-      content: "";
-      display: inline-block;
-      width: 24px;
-    }
-  }
+
 `;
