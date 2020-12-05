@@ -44,11 +44,29 @@ a {
   display: block;
   padding: 12px;
   text-decoration: none;
+  font-weight: bold;
 }
 
+a::before {
+  color: #fff;
+  content: "cd ";
+  text-indent: 0px;
+  letter-spacing: -20px;
+  opacity: 0;
+  transition: letter-spacing 0.3s ease-out, opacity 0.3s ease-out;
+  text-decoration: none;
+}
 a:hover {
   background: hsl(0,0%,10%) !important;
 }
+a:hover::before {
+  text-indent: 0px;
+  letter-spacing: normal;
+  opacity: 1;
+  text-decoration: none;
+}
+
+
 
 a.active {
   background-color: #4CAF50;
