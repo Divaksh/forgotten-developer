@@ -62,6 +62,11 @@ const StickyBar = styled.header`
       opacity: 0;
     }
   }
+  
+  height: 60px;
+  @media screen and (min-width: 560px) and (max-width: 1024px) {
+    height: 80px;
+  }
 `;
 
 const LogoGroup = styled.div`

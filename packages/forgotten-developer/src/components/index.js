@@ -121,20 +121,33 @@ const Container = styled.div`
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 30px 1fr 30px;
+  grid-template-rows: 60px 1fr 30px;
+  @media screen and (max-width: 560px) {
+    grid-template-rows: 60px 1fr;
+  }
+  @media screen and (min-width: 560px) and (max-width: 1024px) {
+    grid-template-rows: 80px 1fr;
+  }
 `;
 
 const Main = styled.div`
   display: grid;
   grid-template-columns: 2fr 10fr;
   overflow: hidden;
-  margin-top: 30px;
+  @media screen and (max-width: 560px) {
+    grid-template-columns: 1fr;
+  }
+
 `;
 
 const PostsCotainer = styled.div`
   overflow-y: scroll;
   padding: 24px;
   margin-bottom: 140px; /* 120px for solution and 20px for footer */
+  @media screen and (max-width: 560px) {
+    margin-bottom: 0;
+    padding: 12px;
+  }
 `;
 
 const Footer = styled.div`
