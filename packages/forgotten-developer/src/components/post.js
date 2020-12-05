@@ -121,6 +121,14 @@ const Content = styled.div`
     border-radius: 15px;
   }
 
+  .tablepress {
+	  text-align: left;
+	  overflow: hidden;
+	  width: 80%;
+	  margin: 0 auto;
+    display: table;
+    padding: 0 0 8em 0;
+  }
 
   td {
     font-weight: normal;
