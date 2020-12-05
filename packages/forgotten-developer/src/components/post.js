@@ -121,13 +121,13 @@ const Content = styled.div`
     border-radius: 15px;
   }
 
-  .tablepress {
-	  text-align: left;
-	  overflow: hidden;
-	  width: 80%;
-	  margin: 0 auto;
+  .tablepress, .wp-block-table {
+    text-align: left;
+    min-width: 60%;
+    max-width: 80%;
+    margin: 0 auto;
     display: table;
-    padding: 0 0 8em 0;
+    padding: 1em 5px 1em 5px;
   }
 
   td {
