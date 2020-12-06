@@ -50,14 +50,14 @@ const Theme = ({ state, actions }) => {
         on the type of URL we are in. */}
         <Main>
           <Nav />
-          <PostsCotainer>
-            <Switch>
-              <Loading when={data.isFetching} />
-              <List when={data.isArchive} />
-              <Post when={data.isPostType} />
-              <PageError when={data.isError} />
-            </Switch>
-          </PostsCotainer>
+            <ContentContainer>
+              <Switch>
+                <Loading when={data.isFetching} />
+                <List when={data.isArchive} />
+                <Post when={data.isPostType} />
+                <PageError when={data.isError} />
+              </Switch>
+            </ContentContainer>
         </Main>
         <Footer></Footer>
       </Container>
@@ -140,7 +140,7 @@ const Main = styled.div`
 
 `;
 
-const PostsCotainer = styled.div`
+const ContentContainer = styled.div`
   overflow-y: scroll;
   padding: 24px;
   margin-bottom: 140px; /* 120px for solution and 20px for footer */
