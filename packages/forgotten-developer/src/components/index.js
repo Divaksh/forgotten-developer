@@ -1,6 +1,8 @@
 import React from "react";
-import { Global, css, connect, styled, Head } from "frontity";
+import { Global, connect, Head } from "frontity";
 import Switch from "@frontity/components/switch";
+import globalStyles from "./styles/global-styles";
+
 import Header from "./header";
 import List from "./list/list";
 import Post from "./post";
@@ -19,137 +21,49 @@ const Theme = ({ state, actions }) => {
 
   return (
     <>
-      {/* Add some metatags to the <head> of the HTML. */}
+    {/* Add some metatags to the <head> of the HTML. */}
       <Title />
       <Head>
         <meta name="description" content={state.frontity.description} />
-        <html lang="en" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
-          rel="stylesheet"
-        ></link>
-
-        {/* Styling for Syntax Highlighting*/}
-        <link rel="stylesheet" href="https://unpkg.com/dracula-prism/css/dracula-prism.css" />
-
+        <html lang="en" />          
       </Head>
 
+      
       {/* Add some global styles for the whole site, like body or a's. 
       Not classes here because we use CSS-in-JS. Only global HTML tags. */}
-      <Global styles={globalStyles} />
+      <Global styles={globalStyles(state.theme.colors)} />
+      <link
+          href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
+          rel="stylesheet"
+      ></link>
 
+      {/* Styling for Syntax Highlighting*/}
+      <link rel="stylesheet" href="https://unpkg.com/dracula-prism/css/dracula-prism.css" />
 
-
-      {/* Main container of the site. */}
-      <Container>
+      {/* Main container of the site that contains everything in the page. */}
+      <div id="container">
 
         {/* Add the header of the site. */}
         <Header />
 
-        {/* Add the main section. It renders a different component depending
-        on the type of URL we are in. */}
-        <Main>
+        <div id="main">
           <Nav />
-            <ContentContainer>
+              {/* Add the content section. It renders a different component depending
+                  on the type of URL we are in. */}
+            <div id="content-container">
               <Switch>
                 <Loading when={data.isFetching} />
+              {/*   <Home when={data.isHome} />  */}
                 <List when={data.isArchive} />
                 <Post when={data.isPostType} />
                 <PageError when={data.isError} />
               </Switch>
-            </ContentContainer>
-        </Main>
-        <Footer></Footer>
-      </Container>
+            </div>
+        </div>
+        <div id="footer"></div>
+      </div>
     </>
   );
 };
 
 export default connect(Theme);
-
-const globalStyles = css`
-  body {
-    margin: 0;
-    font-family: "Source Code Pro", monospace;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background: #11100f;
-    color: white;
-    overflow: hidden;
-  }
-
-  a {
-    color: white;
-    text-decoration: underline;
-    text-decoration-color: #0f0;
-    &:hover {
-      color: #0f0;
-    }
-  }
-
-  ::selection {
-    text-shadow: none;
-    background-color: #00ff00 !important;
-    color: #000;
-  }
-
-  /* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
-  border-radius: 10px;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #0c0; 
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #0f0; 
-}
-`;
-
-const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 60px 1fr 30px;
-  @media screen and (max-width: 560px) {
-    grid-template-rows: 60px 1fr;
-  }
-  @media screen and (min-width: 560px) and (max-width: 1024px) {
-    grid-template-rows: 80px 1fr;
-  }
-`;
-
-const Main = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 10fr;
-  overflow: hidden;
-  @media screen and (max-width: 560px) {
-    grid-template-columns: 1fr;
-  }
-
-`;
-
-const ContentContainer = styled.div`
-  overflow-y: scroll;
-  padding: 24px;
-  margin-bottom: 140px; /* 120px for solution and 20px for footer */
-  @media screen and (max-width: 560px) {
-    margin-bottom: 0;
-    padding: 12px;
-  }
-`;
-
-const Footer = styled.div`
-  border-top: 1px solid lightgrey;
-`;
