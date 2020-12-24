@@ -1,10 +1,10 @@
 import React from "react";
 import { connect, styled } from "frontity";
-import Menu from "./menu";
 import Link from "./link";
 import { FaTerminal } from "react-icons/fa";
+import MobileMenu from "./menu";
 
-const Header = ({ state, actions }) => {
+const Header = ({ state }) => {
   const data = state.source.get(state.router.link);
   const post = state.source[data.type][data.id];
 
@@ -31,7 +31,7 @@ const Header = ({ state, actions }) => {
             />
           </>
         ) : null}
-        <MenuButton>{/*   <Menu /> */}</MenuButton>
+        <MobileMenu />
       </StickyBar>
     </>
   );
@@ -108,11 +108,4 @@ const StickyPostTitle = styled.span`
     display: none;
   }
   
-`;
-
-const MenuButton = styled.span`
-  display: none;
-  @media screen and (max-width: 768px) {
-    display: block;
-  }
 `;

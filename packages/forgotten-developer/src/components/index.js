@@ -1,5 +1,5 @@
 import React from "react";
-import { Global, connect, styled, Head } from "frontity";
+import { Global, connect, Head } from "frontity";
 import Switch from "@frontity/components/switch";
 import globalStyles from "./styles/global-styles";
 
@@ -21,6 +21,14 @@ const Theme = ({ state, actions }) => {
 
   return (
     <>
+    {/* Add some metatags to the <head> of the HTML. */}
+      <Title />
+      <Head>
+        <meta name="description" content={state.frontity.description} />
+        <html lang="en" />          
+      </Head>
+
+      
       {/* Add some global styles for the whole site, like body or a's. 
       Not classes here because we use CSS-in-JS. Only global HTML tags. */}
       <Global styles={globalStyles(state.theme.colors)} />
@@ -31,14 +39,6 @@ const Theme = ({ state, actions }) => {
 
       {/* Styling for Syntax Highlighting*/}
       <link rel="stylesheet" href="https://unpkg.com/dracula-prism/css/dracula-prism.css" />
-    
-      {/* Add some metatags to the <head> of the HTML. */}
-      <Title />
-      <Head>
-        <meta name="description" content={state.frontity.description} />
-        <html lang="en" />
-      </Head>
-
 
       {/* Main container of the site that contains everything in the page. */}
       <div id="container">
@@ -46,7 +46,7 @@ const Theme = ({ state, actions }) => {
         {/* Add the header of the site. */}
         <Header />
 
-      <div id="main">
+        <div id="main">
           <Nav />
               {/* Add the content section. It renders a different component depending
                   on the type of URL we are in. */}
@@ -59,7 +59,7 @@ const Theme = ({ state, actions }) => {
                 <PageError when={data.isError} />
               </Switch>
             </div>
-          </div>
+        </div>
         <div id="footer"></div>
       </div>
     </>

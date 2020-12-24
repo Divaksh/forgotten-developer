@@ -1,10 +1,15 @@
 import Theme from "./components";
-import prismProcessor from "./processors/prism";
-
 import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
+import link from "@frontity/html2react/processors/link";
+
+import prismProcessor from "./processors/prism";
 
 const categoryHandler = {
+  /**
+   *  To use category without slug custom handler with
+   *  different priority created.
+   */
   name: "categoryOrPostType",
   priority: 19,
   pattern: "/(.*)?/:slug", 
@@ -40,29 +45,31 @@ const forgottenDeveloper = {
      * relevant state. It is scoped to the `theme` namespace.
      */
     theme: {
-      colors: {
-        primary: "#0f0",
-        bodyBg: "#11100f",
-      },
+      autoPrefetch: "in-view",
       menu: [],
-      isMenuOpen: false,
+      isMobileMenuOpen: false,
       featured: {
         showOnList: false,
         showOnPost: false,
       },
+      colors: {
+        primary: "#0f0",
+        bodyBg: "#11100f",
+      },
     },
   },
+
   /**
    * Actions are functions that modify the state or deal with other parts of
    * Frontity like libraries.
    */
   actions: {
     theme: {
-      openMenu: ({ state }) => {
-        state.theme.isMenuOpen = true;
+      toggleMobileMenu: ({ state }) => {
+        state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen;
       },
-      closeMenu: ({ state }) => {
-        state.theme.isMenuOpen = false;
+      closeMobileMenu: ({ state }) => {
+        state.theme.isMobileMenuOpen = false;
       },
     },
   },
@@ -73,9 +80,10 @@ const forgottenDeveloper = {
     html2react: {
       /**
        * Add a processor to `html2react` so it processes the `<img>` tags
-       * inside the content HTML. You can add your own processors too
+       * inside the content HTML.
+       * You can add your own processors too.
        */
-      processors: [image, iframe, prismProcessor],
+      processors: [image, iframe, link, prismProcessor],
     },
   },
 };

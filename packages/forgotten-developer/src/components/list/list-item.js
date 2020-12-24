@@ -17,7 +17,7 @@ const Item = ({ state, item }) => {
   return (
     <article>
       <Title>
-        <Link link={item.link} aria-label={item.title}>
+        <Link link={item.link}>
           <span dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
         </Link>
       </Title>

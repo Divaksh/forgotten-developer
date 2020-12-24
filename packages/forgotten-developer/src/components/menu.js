@@ -1,71 +1,47 @@
 import React from "react";
-import { connect, styled } from "frontity";
-import Link from "./link";
+import { styled, connect, Global } from "frontity";
+import { CloseIcon, HamburgerIcon } from "./menu-icon";
+import MenuModal from "./menu-modal";
 
-/**
- * Navigation Component
- *
- * It renders the navigation links
- */
-const Nav = ({ state }) => (
-  <NavContainer>
-    {state.theme.menu.map(([name, link]) => {
-      // Check if the link matched the current page url
-      const isCurrentPage = state.router.link === link;
-      return (
-        <NavItem key={name}>
-          {/* If link url is the current page, add `aria-current` for a11y */}
-          <Link link={link} aria-current={isCurrentPage ? "page" : undefined}>
-            {name}
-          </Link>
-        </NavItem>
-      );
-    })}
-  </NavContainer>
-);
+function MobileMenu({ state, actions }) {
+  const { isMobileMenuOpen } = state.theme;
+  return (
+    <>
+      <MenuToggle onClick={actions.theme.toggleMobileMenu}>
+        {isMobileMenuOpen ? (
+          <>
+            {/* Add some style to the body when menu is open,
+            to prevent body scroll */}
+            <Global styles={{ body: { overflowY: "hidden" } }} />
+            <CloseIcon color="white" size="20px" />
+          </>
+        ) : (
+          <HamburgerIcon color="white" size="24px" />
+        )}
+      </MenuToggle>
+      {/* If the menu is open, render the menu modal */}
+      {isMobileMenuOpen && <MenuModal />}
+    </>
+  );
+}
 
-export default connect(Nav);
+const MenuToggle = styled.button`
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  background: transparent;
+  border: 0;
+  color: white;
+  z-index: 5;
+  height: 40px;
+  width: 40px;
+  display: none;
 
-const NavContainer = styled.nav`
-  list-style: none;
-  display: flex;
-  width: 848px;
-  max-width: 100%;
-  box-sizing: border-box;
-  padding: 0 24px;
-  margin: 0;
-  overflow-x: auto;
-  @media screen and (max-width: 560px) {
-    display: none;
+  @media (max-width: 560px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
-const NavItem = styled.div`
-  padding: 0;
-  margin: 0 16px;
-  color: #fff;
-  font-size: 0.9em;
-  box-sizing: border-box;
-  flex-shrink: 0;
-  & > a {
-    display: inline-block;
-    line-height: 2em;
-    border-bottom: 2px solid;
-    border-bottom-color: transparent;
-    /* Use for semantic approach to style the current link */
-    &[aria-current="page"] {
-      border-bottom-color: #fff;
-    }
-  }
-  &:first-of-type {
-    margin-left: 0;
-  }
-  &:last-of-type {
-    margin-right: 0;
-    &:after {
-      content: "";
-      display: inline-block;
-      width: 24px;
-    }
-  }
-`;
+export default connect(MobileMenu);
