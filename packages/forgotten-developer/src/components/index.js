@@ -10,6 +10,8 @@ import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
 import Nav from "./nav";
+import Footer from "./footer";
+
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -60,7 +62,9 @@ const Theme = ({ state, actions }) => {
               </Switch>
             </div>
         </div>
-        <div id="footer"></div>
+        <div id="footer">
+          <Footer/>
+        </div>
       </div>
     </>
   );
