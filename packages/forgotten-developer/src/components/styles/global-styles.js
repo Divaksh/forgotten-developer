@@ -55,7 +55,7 @@ const Container = css`
         width: 100vw;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 60px 1fr 30px;
+        grid-template-rows: 60px 1fr 24px;
         @media screen and (max-width: 560px) {
         grid-template-rows: 60px 1fr;
         }
@@ -80,7 +80,7 @@ const ContentContainer = css`
     #content-container{
         overflow-y: scroll;
         padding: 24px;
-        margin-bottom: 140px; /* 120px for solution and 20px for footer */
+        margin-bottom: 132px; /* 120px for solution and 20px for footer */
         @media screen and (max-width: 560px) {
         margin-bottom: 0;
         padding: 12px;
@@ -90,7 +90,8 @@ const ContentContainer = css`
 
 const Footer = css`
     #footer{
-        border-top: 1px solid lightgrey;
+        border-top: 1px solid #333;
+        box-shadow: 1px 1px 0.5em black inset;
     }
 `;
 
