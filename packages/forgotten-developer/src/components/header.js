@@ -1,11 +1,13 @@
 import React from "react";
-import { connect, styled } from "frontity";
+import { connect, styled, decode } from "frontity";
 import Link from "./link";
 import { FaTerminal } from "react-icons/fa";
 import MobileMenu from "./menu";
 
 const Header = ({ state }) => {
+  // Get the data of the current list.
   const data = state.source.get(state.router.link);
+  // Get the data of the post.
   const post = state.source[data.type][data.id];
 
   return (
@@ -22,15 +24,33 @@ const Header = ({ state }) => {
             </Title>
           </LogoText>
         </LogoGroup>
-        {/* Show sticky post title for the post page*/}
-        {data.isPost ? (
-          <>
-            <StickyPostTitleSeparator>/</StickyPostTitleSeparator>
-            <StickyPostTitle
-              dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-            />
-          </>
-        ) : null}
+
+        {!data.isHome && (
+            <>
+              <StickyPostTitleSeparator>/</StickyPostTitleSeparator>
+              {/* If the list is a taxonomy, we render a title. */}
+              {data.isTaxonomy && (
+                <StickyPostTitle>
+                  {decode(state.source[data.taxonomy][data.id].name)}
+                </StickyPostTitle>
+              )}
+
+              {/* If the list is for a specific author, we render a title. */}
+              {data.isAuthor && (
+                <StickyPostTitle>
+                  {decode(state.source.author[data.id].name)}
+                </StickyPostTitle>
+              )}
+
+              {/* Show sticky post title for the post page*/}
+              {data.isPost && (
+                <StickyPostTitle
+                  dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                />
+              )}
+           </>
+          )
+        }
         <MobileMenu />
       </StickyBar>
     </>
