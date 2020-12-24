@@ -63,7 +63,7 @@ export default connect(Header);
 const StickyBar = styled.header`
   width: 100vw;
   box-sizing: border-box;
-  padding: 10px 0 10px 24px;
+  padding: 10px 24px;
   color: #fff;
   margin: auto;
   ${(props) =>

@@ -8,7 +8,7 @@ const Footer = () => {
 
     return (
         <FooterText>
-           <FaCode color="#0f0" style={{ marginBottom: "-2px" }} /> with <GiHeartOrgan color="red" style={{ marginBottom: "-2px" }} /> and <GiBrain color="pink" style={{ marginBottom: "-2px" }} /> by Divaksh
+           <FaCode color="#0f0" style={{ marginBottom: "-2px" }} /> with <GiHeartOrgan color="red" style={{ marginBottom: "-2px" , animation: "pulsate 1.4s linear infinite" }} /> and <GiBrain color="pink" style={{ marginBottom: "-2px" }} /> by Divaksh
         </FooterText>
       );
     };
@@ -16,8 +16,8 @@ const Footer = () => {
 export default connect(Footer);
 
 const FooterText = styled.div`
-font-size: 12px;
+    font-size: 14px;
     margin: auto;
-    padding: 2px 10px 2px 2px;
+    padding: 1px 10px 1px 2px;
     text-align: right;
 `;
