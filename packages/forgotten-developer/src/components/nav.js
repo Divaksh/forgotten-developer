@@ -57,7 +57,7 @@ a::before {
   text-decoration: none;
 }
 a:hover {
-  background: hsl(0,0%,10%) !important;
+  background: hsl(0,0%,4%) !important;
 }
 a:hover::before {
   text-indent: 0px;
@@ -66,11 +66,26 @@ a:hover::before {
   text-decoration: none;
 }
 
+/* Use for semantic approach to style the current link */
+[aria-current="page"] {
+  background: hsl(0,0%,6%) !important;
+  :after {
+    color: #fff;
+    content: "/";
+    text-decoration: none;
+  }
+  :hover::before {
+    opacity: 0;
+    letter-spacing: -20px;
+    text-decoration: none;
+  }
+  :hover::after {
+    color: #0f0;
+  }
+  :hover {
+    background: hsl(0,0%,6%) !important;
+  }
 
-
-a.active {
-  background-color: #4CAF50;
-  color: white;
 }
 
 `;
