@@ -4,6 +4,27 @@ import prismProcessor from "./processors/prism";
 import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
 
+const categoryHandler = {
+  name: "categoryOrPostType",
+  priority: 19,
+  pattern: "/(.*)?/:slug", 
+  func: async ({ route, params, state, libraries }) => {
+    // 1. try with category.
+    try {
+      const category = libraries.source.handlers.find(
+        handler => handler.name == "category"
+      );
+      await category.func({ route, params, state, libraries });
+    } catch (e) {
+      // It's not a category
+      const postType = libraries.source.handlers.find(
+        handler => handler.name == "post type"
+      );
+      await postType.func({ link: route, params, state, libraries });
+    }
+  }
+};
+
 const forgottenDeveloper = {
   name: "forgotten-developer",
   roots: {
@@ -42,6 +63,9 @@ const forgottenDeveloper = {
     },
   },
   libraries: {
+    source: {
+      handlers: [categoryHandler],
+    },
     html2react: {
       /**
        * Add a processor to `html2react` so it processes the `<img>` tags
