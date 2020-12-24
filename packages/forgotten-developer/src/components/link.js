@@ -21,7 +21,7 @@ const Link = ({
     //window.scrollTo(0, 0);
 
     //Scroll to the PostCotainer top
-    document.querySelector('[class*="ContentContainer"]').scrollTo(0,0)
+    document.getElementById("content-container").scrollTo(0,0);
 
     // if the menu modal is open, close it so it doesn't block rendering
     if (state.theme.isMobileMenuOpen) {

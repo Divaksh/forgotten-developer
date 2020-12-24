@@ -40,6 +40,10 @@ const forgottenDeveloper = {
      * relevant state. It is scoped to the `theme` namespace.
      */
     theme: {
+      colors: {
+        primary: "#0f0",
+        bodyBg: "#11100f",
+      },
       menu: [],
       isMenuOpen: false,
       featured: {
