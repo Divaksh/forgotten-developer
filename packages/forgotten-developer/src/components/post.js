@@ -3,6 +3,7 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
+import Comments from "./comments";
 
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -67,6 +68,7 @@ const Post = ({ state, actions, libraries }) => {
       <Content>
         <Html2React html={post.content.rendered} />
       </Content>
+      <Comments postId={post.id} />
     </Container>
     </>
   ) : null;
