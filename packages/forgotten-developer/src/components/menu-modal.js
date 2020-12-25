@@ -29,15 +29,12 @@ const MenuOverlay = styled.div`
   background: hsl(0,0%,8%) !important;
   box-shadow: 2px 2px 1em black inset;
   width: 100vw;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 60px);
   overflow: hidden auto;
   position: fixed;
   z-index: 2;
   top: 60px;
   left: 0;
-  @media screen and (max-width: 768px) {
-    height: calc(100vh - 60px);
-  }
 `;
 
 const MenuContent = styled.div`

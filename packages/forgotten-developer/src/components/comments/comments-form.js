@@ -37,7 +37,7 @@ const CommentsForm = ({ actions, state, postId }) => {
         <InputEmail>
         <div className="input">
           <input
-            type="email"
+            type="text"
             name="author_email"
             placeholder=" "
             onChange={(e) =>
