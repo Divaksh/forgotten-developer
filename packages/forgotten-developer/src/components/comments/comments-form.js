@@ -8,6 +8,8 @@ const CommentsForm = ({ actions, state, postId }) => {
      <CommentForm>
         <CommentFormHeader>
              Add Comment>
+            {/* If the form is submitting, we can show some kind of a loading state */}
+            {form?.isSubmitting && <Loading />}
         </CommentFormHeader>
       <form
         onSubmit={(e) => {
@@ -40,6 +42,7 @@ const CommentsForm = ({ actions, state, postId }) => {
             type="text"
             name="author_email"
             placeholder=" "
+            spellcheck="false"
             onChange={(e) =>
               actions.comments.updateFields(postId, {
                 authorEmail: e.target.value
