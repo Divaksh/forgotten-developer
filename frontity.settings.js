@@ -17,12 +17,10 @@ const settings = {
         theme: {
           menu: [
             ["Home", "/"],
-            ["Git", "/git/"],
-            ["Java", "/java/"],
-            ["JavaScript", "/javascript/"],
             ["C", "/c/"],
+            ["Git", "/git/"],
             ["HTTP", "/http/"],
-            ["About Us", "/about-us/"],
+            ["Java", "/java/"],
           ],
           featured: {
             showOnList: false,
