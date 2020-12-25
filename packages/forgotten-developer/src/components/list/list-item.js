@@ -103,4 +103,5 @@ const PublishIn = styled.span`
 const Excerpt = styled.div`
   line-height: 1.6em;
   font-size: 18px !important;
+  text-align: justify;
 `;

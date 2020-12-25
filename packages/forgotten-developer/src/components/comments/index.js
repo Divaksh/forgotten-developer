@@ -12,8 +12,8 @@ const Comments = ({ actions, state, postId }) => {
   return (
     data.isReady && (
       <>
-        <CommentsForm postId={postId} />
         <CommentsList postId={postId} />
+        <CommentsForm postId={postId} />
       </>
     )
   );
