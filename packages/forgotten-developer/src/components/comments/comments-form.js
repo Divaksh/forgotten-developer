@@ -85,7 +85,7 @@ const CommentsForm = ({ actions, state, postId }) => {
           {form?.isSubmitted && <SuccessMessage> "The comment was submitted successfully!" </SuccessMessage>}
         
         <SubmitButton>
-          <input type="submit" />
+          <input type="submit" value="SUBMIT"/>
         </SubmitButton>
       </form>
     </CommentForm>

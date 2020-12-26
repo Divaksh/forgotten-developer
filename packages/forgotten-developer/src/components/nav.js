@@ -29,8 +29,11 @@ export default connect(Nav);
 const NavContainer = styled.nav`
 /* define a fixed width for the entire menu */
   padding: 24px;
-  width: 75%;
-  height: 100vh;
+  width: 200px;
+  height: calc(100vh - 90px); /* header + footer */
+  @media screen and (min-width: 560px) and (max-width: 1024px) {
+    height: calc(100vh - 110px); /* header + footer */
+  }
   overflow-y: auto;
   background: hsl(0,0%,8%) !important;
   box-shadow: 1px 1px 0.5em black inset;

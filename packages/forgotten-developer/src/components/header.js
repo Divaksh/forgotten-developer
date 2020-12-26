@@ -63,7 +63,7 @@ export default connect(Header);
 const StickyBar = styled.header`
   width: 100vw;
   box-sizing: border-box;
-  padding: 10px 24px;
+  padding: 10px;
   color: #fff;
   margin: auto;
   ${(props) =>
@@ -94,6 +94,7 @@ const LogoGroup = styled.div`
   line-height: 1.1;
   display: flex;
   align-self: center;
+  padding-left: 24px;
 `;
 
 const LogoIcon = styled.span`

@@ -41,11 +41,15 @@ const MenuContent = styled.div`
   z-index: 3;
   position: absolute;
   top: 75px;
-  padding-right: 24px;
+  right: 0;
+  width: 100vw;
 `;
 
 const MenuLink = styled(Link)`
-  width: 100%;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  width: fill-available;
+  margin: 0 10%;
   display: inline-block;
   outline: 0;
   font-size: 20px;

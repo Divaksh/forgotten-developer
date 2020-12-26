@@ -11,6 +11,10 @@ const cssReset = (colors) => css`
     overflow: hidden;
   }
 
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
   a {
     color: white;
     text-decoration: underline;
@@ -55,12 +59,9 @@ const Container = css`
         width: 100vw;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 60px 1fr 24px;
-        @media screen and (max-width: 560px) {
-        grid-template-rows: 60px 1fr;
-        }
+        grid-template-rows: 60px 1fr 30px;
         @media screen and (min-width: 560px) and (max-width: 1024px) {
-        grid-template-rows: 80px 1fr;
+          grid-template-rows: 80px 1fr 30px;
         }
     }
 `;
@@ -68,10 +69,10 @@ const Container = css`
 const Main = css`
     #main{
         display: grid;
-        grid-template-columns: 2fr 10fr;
+        grid-template-columns: 200px 1fr;
         overflow: hidden;
         @media screen and (max-width: 560px) {
-        grid-template-columns: 1fr;
+          grid-template-columns: 1fr;
         }  
     }
 `;
@@ -80,10 +81,12 @@ const ContentContainer = css`
     #content-container{
         overflow-y: scroll;
         padding: 24px;
-        margin-bottom: 132px; /* 120px for solution and 20px for footer */
+        height: calc(100vh - 90px); /* header + footer */
         @media screen and (max-width: 560px) {
-        margin-bottom: 0;
-        padding: 12px;
+          padding: 12px;
+        }
+        @media screen and (min-width: 560px) and (max-width: 1024px) {
+          height: calc(100vh - 110px); /* header + footer */
         }
     }
 `;
