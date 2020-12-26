@@ -12,7 +12,11 @@ import FeaturedMedia from "../featured-media";
  * - FeaturedMedia: the featured image/video of the post
  */
 const Item = ({ state, item }) => {
+  // Get the data of the author.
   const author = state.source.author[item.author];
+  // Get the data of the category.
+  const category = state.source.category[item.categories[0]]
+  // Get the date of the post.
   const date = new Date(item.date);
   return (
     <article>
@@ -36,8 +40,12 @@ const Item = ({ state, item }) => {
           Compiled on <b>{date.toDateString()}</b>
         </PublishDate>
         <PublishIn>
-          {" "}
-          in <b>{state.source.category[item.categories[0]].name}</b>
+          {" in "}
+          <StyledLink link={category.link}>
+            <CategoryName>
+              <b>{category.name}</b>
+            </CategoryName>
+          </StyledLink>
         </PublishIn>
       </div>
 
@@ -84,7 +92,7 @@ const Title = styled.h1`
   }
 `;
 
-const AuthorName = styled.span`
+const CategoryName = styled.span`
   font-size: 16px !important;
 `;
 

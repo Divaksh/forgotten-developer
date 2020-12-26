@@ -14,6 +14,9 @@ const Post = ({ state, actions, libraries }) => {
   const author = state.source.author[post.author];
   // Get a human readable date.
   const date = new Date(post.date);
+  // Get the data of the category.
+  const category = state.source.category[post.categories[0]]
+
 
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
@@ -51,8 +54,12 @@ const Post = ({ state, actions, libraries }) => {
                 Compiled on <b>{date.toDateString()}</b>
               </DateWrapper>
               <PublishIn>
-                {" "}
-                in <b>{state.source.category[post.categories[0]].name}</b>
+                {" in "}
+                <StyledLink link={category.link}>
+                  <CategoryName>
+                    <b>{category.name}</b>
+                  </CategoryName>
+                </StyledLink>
               </PublishIn>
             </div>
           )}
@@ -79,6 +86,14 @@ export default connect(Post);
 const Container = styled.div``;
 
 const Author = styled.span``;
+
+const CategoryName = styled.span`
+  font-size: 16px !important;
+`;
+
+const StyledLink = styled(Link)`
+  padding: 15px 0;
+`;
 
 const DateWrapper = styled.span``;
 
