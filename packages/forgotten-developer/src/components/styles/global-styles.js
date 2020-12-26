@@ -9,6 +9,11 @@ const cssReset = (colors) => css`
     background: ${colors.bodyBg};
     color: white;
     overflow: hidden;
+
+    /* Scrollbar for firefox */
+    scrollbar-color: ${colors.primary} hsl(0,0%,12%); /* where red is the bar and green is thumb */
+    scrollbar-width: thin; /* other option is thick */
+  
   }
 
   *, *:before, *:after {
@@ -28,7 +33,9 @@ const cssReset = (colors) => css`
     text-shadow: none;
     background-color: ${colors.primary} !important;
     color: #000;
-  }
+  } 
+
+/* Scrollbar for chrome */ 
 
   /* width */
 ::-webkit-scrollbar {
@@ -51,6 +58,7 @@ const cssReset = (colors) => css`
 ::-webkit-scrollbar-thumb:hover {
   background: ${colors.primary}; 
 }
+
 `;
 
 const Container = css`
