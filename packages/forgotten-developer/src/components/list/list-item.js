@@ -37,7 +37,7 @@ const Item = ({ state, item }) => {
         )}
 */}
         <PublishDate>
-          Compiled on <b>{date.toDateString()}</b>
+          Compiled on <b>{date.toDateString().replace(/^\S+\s/,'')}</b>
         </PublishDate>
         <PublishIn>
           {" in "}

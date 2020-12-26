@@ -51,7 +51,7 @@ const Post = ({ state, actions, libraries }) => {
               */}
               <DateWrapper>
                 {" "}
-                Compiled on <b>{date.toDateString()}</b>
+                Compiled on <b>{date.toDateString().replace(/^\S+\s/,'')}</b>
               </DateWrapper>
               <PublishIn>
                 {" in "}
