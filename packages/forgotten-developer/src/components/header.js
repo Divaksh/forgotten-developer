@@ -94,7 +94,10 @@ const LogoGroup = styled.div`
   line-height: 1.1;
   display: flex;
   align-self: center;
-  padding-left: 24px;
+  padding-left: 12px;
+  @media screen and (max-width: 768px) {
+    padding-left: 0;
+  }
 `;
 
 const LogoIcon = styled.span`
