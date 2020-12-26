@@ -7,17 +7,35 @@ import { GiBrain } from "react-icons/gi";
 const Footer = () => {
 
     return (
-        <FooterText>
-           <FaCode color="#0f0" style={{ marginBottom: "-2px" }} /> with <GiHeartOrgan color="red" style={{ marginBottom: "-2px" , animation: "pulsate 1.4s linear infinite" }} /> and <GiBrain color="pink" style={{ marginBottom: "-2px" }} /> by Divaksh
-        </FooterText>
+        <Container>
+            <FooterText>
+              <FaCode color="#0f0" style={{ marginBottom: "-2px" }} /> with <GiHeartOrgan color="red" style={{ marginBottom: "-2px" , animation: "pulsate 1.4s linear infinite" }} /> and <GiBrain color="pink" style={{ marginBottom: "-2px" }} /> by Divaksh
+            </FooterText>
+        </Container>
       );
     };
     
 export default connect(Footer);
 
+const Container = styled.div`
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "colorchoice textarea";
+        @media screen and (max-width: 768px) {
+            grid-template-areas:
+                "colorchoice colorchoice"
+                "textarea textarea";
+        }
+    }
+`;
+
 const FooterText = styled.div`
-    font-size: 14px;
+    grid-area: textarea / textarea / textarea / textarea;
+    width: 100%;
+    font-size: 16px;
     margin: auto;
-    padding: 1px 10px 1px 2px;
+    padding: 2px 12px 2px 2px;
     text-align: right;
 `;
