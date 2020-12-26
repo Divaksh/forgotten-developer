@@ -8,7 +8,7 @@ import Link from "./link";
  * It renders the navigation links
  */
 const Nav = ({ state }) => (
-  <NavContainer>
+  <NavContainer color={state.theme.colors.themeColor}>
     {state.theme.menu.map(([name, link]) => {
       // Check if the link matched the current page url
       const isCurrentPage = state.router.link === link;
@@ -83,7 +83,7 @@ a:hover::before {
     text-decoration: none;
   }
   :hover::after {
-    color: #0f0;
+    color: ${(props) => props.color};
   }
   :hover {
     background: hsl(0,0%,6%) !important;

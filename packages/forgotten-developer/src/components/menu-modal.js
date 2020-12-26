@@ -5,6 +5,8 @@ import Link from "./link";
 const MenuModal = ({ state }) => {
   const { menu } = state.theme;
   const isThereLinks = menu != null && menu.length > 0;
+  // Get the theme color.
+  const { themeColor } = state.theme.colors;
 
   return (
     <>
@@ -13,6 +15,7 @@ const MenuModal = ({ state }) => {
         {isThereLinks &&
           menu.map(([name, link]) => (
             <MenuLink
+              color={themeColor}
               key={name}
               link={link}
               aria-current={state.router.link === link ? "page" : undefined}
@@ -63,7 +66,7 @@ const MenuLink = styled(Link)`
   }
   /* styles for active link */
   &[aria-current="page"] {
-    color: #0f0;
+    color: ${(props) => props.color};
     font-weight: bold;
     background: hsl(0,0%,6%) !important;
   }

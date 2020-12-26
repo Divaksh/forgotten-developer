@@ -53,8 +53,9 @@ const forgottenDeveloper = {
         showOnPost: false,
       },
       colors: {
-        primary: "#0f0",
+        themeColor: "#0f0",
         bodyBg: "#11100f",
+        formBg: "hsl(0, 0%, 8%) !important",
       },
     },
   },

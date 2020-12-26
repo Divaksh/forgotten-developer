@@ -11,7 +11,7 @@ const cssReset = (colors) => css`
     overflow: hidden;
 
     /* Scrollbar for firefox */
-    scrollbar-color: ${colors.primary} hsl(0,0%,12%); /* where red is the bar and green is thumb */
+    scrollbar-color: ${colors.themeColor} hsl(0,0%,12%); /* where red is the bar and green is thumb */
     scrollbar-width: thin; /* other option is thick */
   
   }
@@ -23,15 +23,15 @@ const cssReset = (colors) => css`
   a {
     color: white;
     text-decoration: underline;
-    text-decoration-color: ${colors.primary};
+    text-decoration-color: ${colors.themeColor};
     &:hover {
-      color: ${colors.primary};
+      color: ${colors.themeColor};
     }
   }
 
   ::selection {
     text-shadow: none;
-    background-color: ${colors.primary} !important;
+    background-color: ${colors.themeColor} !important;
     color: #000;
   } 
 
@@ -45,18 +45,17 @@ const cssReset = (colors) => css`
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey; 
-  border-radius: 10px;
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #0c0; 
-  border-radius: 10px;
+  background: ${colors.themeColor};
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: ${colors.primary}; 
+  background: #fff;
+  background-blend-mode: multiply;
 }
 
 `;

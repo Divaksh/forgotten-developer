@@ -16,6 +16,8 @@ const Post = ({ state, actions, libraries }) => {
   const date = new Date(post.date);
   // Get the data of the category.
   const category = state.source.category[post.categories[0]]
+  // Get the theme color.
+  const { themeColor } = state.theme.colors;
 
 
   // Get the html2react component.
@@ -72,7 +74,7 @@ const Post = ({ state, actions, libraries }) => {
 
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
-      <Content>
+      <Content color={themeColor}>
         <Html2React html={post.content.rendered} />
       </Content>
       <Comments postId={post.id} />
@@ -138,7 +140,7 @@ const Content = styled.div`
   blockquote {
     margin: 16px 0;
     background-color: rgba(0, 0, 0, 0.4);
-    border-left: 4px solid #0f0;
+    border-left: 4px solid ${(props) => props.color};
     padding: 4px 16px;
     box-shadow: 1px 1px 0.5em black inset;
   }
@@ -192,7 +194,7 @@ const Content = styled.div`
   }
 
   pre::-webkit-scrollbar-thumb:hover {
-    background-color: #0f0;
+    background-color: ${(props) => props.color};
     border-radius: 15px;
   } 
 
@@ -254,7 +256,7 @@ const Content = styled.div`
   }
   
   td:hover {
-    background-color: #0f0;
+    background-color: ${(props) => props.color};
     color: #000;
     font-weight: bold;
     box-shadow: #0a0 -1px 1px, #0a0 -2px 2px, #0a0 -3px 3px, #0a0 -4px 4px, #0a0 -5px 5px, #0a0 -6px 6px;

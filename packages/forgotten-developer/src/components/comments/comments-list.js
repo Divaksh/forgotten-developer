@@ -5,7 +5,8 @@ import { FaTerminal } from "react-icons/fa";
 const CommentsList = ({ state, libraries, postId }) => {
   const data = state.source.get(`@comments/${postId}`);
   const Html2React = libraries.html2react.Component;
-
+  // Get the theme color.
+  const { themeColor } = state.theme.colors;
   return (
     <>
       <Container>
@@ -19,8 +20,8 @@ const CommentsList = ({ state, libraries, postId }) => {
           return (
             <>
               <Comment>
-                <CommentAuthor>
-                <FaTerminal color="#0f0" style={{ marginBottom: "-3px" }} /> {state.source.comment[id].author_name || "Anonymous"}:
+                <CommentAuthor color={themeColor}>
+                <FaTerminal color={themeColor} style={{ marginBottom: "-3px" }} /> {state.source.comment[id].author_name || "Anonymous"}:
                 </CommentAuthor>
                 <CommentContent>
                   <Html2React
@@ -57,7 +58,7 @@ margin: 10px auto;
 
 const CommentAuthor = styled.div`
   padding-left: 10px;
-  color: #0f0;
+  color: ${(props) => props.color};
 `;
 
 const Comment = styled.div`

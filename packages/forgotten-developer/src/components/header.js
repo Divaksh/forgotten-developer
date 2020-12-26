@@ -9,6 +9,8 @@ const Header = ({ state }) => {
   const data = state.source.get(state.router.link);
   // Get the data of the post.
   const post = state.source[data.type][data.id];
+  // Get the theme color.
+  const { themeColor } = state.theme.colors;
 
   return (
     <>
@@ -16,10 +18,10 @@ const Header = ({ state }) => {
       <StickyBar isPostType={data.isPostType}>
         <LogoGroup>
           <LogoIcon>
-            <FaTerminal color="#0f0" style={{ marginBottom: "-6px" }} />
+            <FaTerminal color={themeColor} style={{ marginBottom: "-6px" }} />
           </LogoIcon>
           <LogoText>
-            <Title>
+            <Title color={themeColor}>
               <Link link="/">{state.frontity.title}</Link>
             </Title>
           </LogoText>
@@ -114,7 +116,7 @@ const Title = styled.span`
   a {
     text-decoration: none;
     &:hover {
-      color: #0f0;
+      color: ${(props) => props.color};
     }
   }
 `;

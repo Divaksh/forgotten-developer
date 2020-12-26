@@ -3,9 +3,12 @@ import { connect, styled } from "frontity";
 import Loading from "../loading";
 
 const CommentsForm = ({ actions, state, postId }) => {
+  //Get the post form
   const form = state.comments.forms[postId];
+  // Get the theme color.
+  const { themeColor } = state.theme.colors;  
   return (
-     <CommentForm>
+     <CommentForm color={themeColor}>
         <CommentFormHeader>
              Add Comment>
             {/* If the form is submitting, we can show some kind of a loading state */}
@@ -154,9 +157,9 @@ const CommentForm = styled.div`
     }
 
     .input input:focus,.input textarea:focus {
-        border: .1em solid #0f0;
-        box-shadow: 0 0 0 1px #0f0, 0 0 0 6px rgba(0, 0, 0, 0.2),
-            0 0 0 1px #0f0;
+        border: .1em solid ${(props) => props.color};
+        box-shadow: 0 0 0 1px ${(props) => props.color}, 0 0 0 6px rgba(0, 0, 0, 0.2),
+            0 0 0 1px ${(props) => props.color};
     }
     
     .input a {
@@ -186,14 +189,14 @@ const CommentForm = styled.div`
 
     .input input:focus + a,
     .input textarea:focus + a {
-        color: #0f0;
+        color: ${(props) => props.color};
     }
       
       input[type=submit]:hover {
-        border: .1em solid #0f0;
-        box-shadow: 0 0 0 1px #0f0, 0 0 0 6px rgba(0, 0, 0, 0.2),
-            0 0 0 1px #0f0;
-        color: #0f0;
+        border: .1em solid ${(props) => props.color};
+        box-shadow: 0 0 0 1px ${(props) => props.color}, 0 0 0 6px rgba(0, 0, 0, 0.2),
+            0 0 0 1px ${(props) => props.color};
+        color: ${(props) => props.color};
     }
 }
 `;
@@ -229,7 +232,7 @@ const SubmitButton = styled.div`
 const SuccessMessage = styled.div`
     grid-area: message / message / message / message;
     color: #000;
-    background-color: #0f0;
+    background-color: ${(props) => props.color};
     margin: 5px 0;
     padding: 5px;
     display: inline-block;
