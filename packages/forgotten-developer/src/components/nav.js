@@ -28,7 +28,7 @@ export default connect(Nav);
 
 const NavContainer = styled.nav`
 /* define a fixed width for the entire menu */
-  padding: 24px;
+  padding: 12px 24px;
   width: 200px;
   height: calc(100vh - 90px); /* header + footer */
   @media screen and (min-width: 560px) and (max-width: 1024px) {
