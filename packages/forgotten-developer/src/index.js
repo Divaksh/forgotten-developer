@@ -72,6 +72,24 @@ const forgottenDeveloper = {
       closeMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = false;
       },
+      setThemeColorGreen: ({ state }) => {
+        state.theme.colors.themeColor = "#0f0";
+      },
+      setThemeColorRed: ({ state }) => {
+        state.theme.colors.themeColor = "red";
+      },
+      setThemeColorYellow: ({ state }) => {
+        state.theme.colors.themeColor = "#dbf962";
+      },
+      setThemeColorWhite: ({ state }) => {
+        state.theme.colors.themeColor = "white";
+      },
+      setThemeColorTeal: ({ state }) => {
+        state.theme.colors.themeColor = "#0ff";
+      },
+      setThemeColorBlue: ({ state }) => {
+        state.theme.colors.themeColor = "#1DBAFE";
+      },
     },
   },
   libraries: {
