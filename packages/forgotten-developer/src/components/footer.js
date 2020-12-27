@@ -11,18 +11,17 @@ const Footer = ({state, actions}) => {
 
     return (
         <Container>
+            <ColorChoice>
+                <GoTerminal color="#0f0" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorGreen} />
+                <GoTerminal color="red" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorRed} />
+                <GoTerminal color="#1DBAFE" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorBlue} />
+                <GoTerminal color="#dbf962" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorYellow} />
+                <GoTerminal color="#0ff" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorTeal} />
+                <GoTerminal color="white" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorWhite} />
+            </ColorChoice>
             <FooterText>
               <FaCode color={themeColor} style={{ marginBottom: "-2px" }} /> with <GiHeartOrgan color="red" style={{ marginBottom: "-2px" , animation: "pulsate 1.4s linear infinite" }} /> and <GiBrain color="pink" style={{ marginBottom: "-2px" }} /> by Divaksh
             </FooterText>
-            <ColorChoice>
-            <GoTerminal color="#0f0" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorGreen} />
-            <GoTerminal color="red" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorRed} />
-            <GoTerminal color="#1DBAFE" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorBlue} />
-            <GoTerminal color="#dbf962" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorYellow} />
-            <GoTerminal color="#0ff" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorTeal} />
-            <GoTerminal color="white" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorWhite} />
-            </ColorChoice>
-
         </Container>
       );
     };
@@ -31,7 +30,7 @@ export default connect(Footer);
 
 const Container = styled.div`
     display: grid;
-    gap: 15px;
+    gap: 5px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
         "colorchoice textarea";
@@ -39,6 +38,8 @@ const Container = styled.div`
             grid-template-areas:
                 "colorchoice colorchoice"
                 "textarea textarea";
+            align-items: center;
+            justify-content: center;
         }
     }
 `;
@@ -50,6 +51,10 @@ const FooterText = styled.div`
     margin: auto;
     padding: 2px 12px 2px 2px;
     text-align: right;
+    @media screen and (max-width: 768px) {
+        padding: 0;
+        text-align: center;
+    }
 `;
 
 const ColorChoice = styled.div`
@@ -59,4 +64,8 @@ const ColorChoice = styled.div`
     margin: auto;
     padding: 2px 0 0 24px;
     text-align: left;
+    @media screen and (max-width: 768px) {
+        padding: 5px 0 0 0;
+        text-align: center;
+    }
 `;

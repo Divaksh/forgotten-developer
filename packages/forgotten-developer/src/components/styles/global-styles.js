@@ -70,6 +70,9 @@ const Container = css`
         @media screen and (min-width: 560px) and (max-width: 1024px) {
           grid-template-rows: 80px 1fr 30px;
         }
+        @media screen and (max-width: 560px) {
+          grid-template-rows: 80px 1fr 60px;
+        }  
     }
 `;
 
