@@ -50,12 +50,13 @@ const cssReset = (colors) => css`
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: ${colors.themeColor};
+  border-radius: 1px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #fff;
-  background-blend-mode: multiply;
+  border-radius: 10px;
 }
 
 `;
@@ -93,6 +94,7 @@ const ContentContainer = css`
         padding: 24px;
         height: calc(100vh - 90px); /* header + footer */
         @media screen and (max-width: 560px) {
+          height: calc(100vh - 140px);
           padding: 12px;
         }
         @media screen and (min-width: 560px) and (max-width: 1024px) {
