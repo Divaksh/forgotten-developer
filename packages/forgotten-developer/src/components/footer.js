@@ -19,7 +19,7 @@ const Footer = ({state, actions}) => {
                 <GoTerminal color="#0ff" style={{ marginBottom: "-2px", marginRight: "10px", cursor: "pointer" }} onClick={actions.theme.setThemeColorTeal} />
             </ColorChoice>
             <FooterText>
-              <FaCode color={themeColor} style={{ marginBottom: "-2px" }} /> with <GiHeartOrgan color="red" style={{ marginBottom: "-2px" , animation: "pulsate 1.4s linear infinite" }} /> and <GiBrain color="pink" style={{ marginBottom: "-2px" }} /> by Divaksh
+              <FaCode color={themeColor} style={{ marginBottom: "-2px" }} /> with <GiHeartOrgan color="red" style={{ marginBottom: "-2px" , animation: "pulsate 1.4s linear infinite" }} /> and <GiBrain color={themeColor=="red" ? "red" : "pink" } style={{ marginBottom: "-2px" }} /> by Divaksh
             </FooterText>
         </Container>
       );

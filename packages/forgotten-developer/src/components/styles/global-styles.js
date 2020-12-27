@@ -72,7 +72,7 @@ const Container = css`
           grid-template-rows: 80px 1fr 30px;
         }
         @media screen and (max-width: 560px) {
-          grid-template-rows: 80px 1fr 60px;
+          grid-template-rows: 60px 1fr 60px;
         }  
     }
 `;
@@ -94,7 +94,7 @@ const ContentContainer = css`
         padding: 24px;
         height: calc(100vh - 90px); /* header + footer */
         @media screen and (max-width: 560px) {
-          height: calc(100vh - 140px);
+          height: calc(100vh - 120px);
           padding: 12px;
         }
         @media screen and (min-width: 560px) and (max-width: 1024px) {
