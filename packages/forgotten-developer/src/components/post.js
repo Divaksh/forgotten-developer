@@ -245,7 +245,7 @@ const Content = styled.div`
   }
   
   td:first-child {
-    color: #0d0;
+    color: ${(props) => props.color};
   }
   
   tr:hover {
@@ -259,7 +259,7 @@ const Content = styled.div`
     background-color: ${(props) => props.color};
     color: #000;
     font-weight: bold;
-    box-shadow: #0a0 -1px 1px, #0a0 -2px 2px, #0a0 -3px 3px, #0a0 -4px 4px, #0a0 -5px 5px, #0a0 -6px 6px;
+    box-shadow: #000 -1px 1px, #000 -2px 2px, #000 -3px 3px, #000 -4px 4px, #000 -5px 5px, #000 -6px 6px;
     transform: translate3d(6px,-6px,0);
     transition-delay: 0s;
     transition-duration: .4s;
