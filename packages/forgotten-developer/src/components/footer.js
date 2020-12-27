@@ -12,12 +12,11 @@ const Footer = ({state, actions}) => {
     return (
         <Container>
             <ColorChoice>
-                <GoTerminal color="#0f0" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorGreen} />
-                <GoTerminal color="red" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorRed} />
-                <GoTerminal color="#1DBAFE" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorBlue} />
-                <GoTerminal color="#dbf962" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorYellow} />
-                <GoTerminal color="#0ff" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorTeal} />
-                <GoTerminal color="white" style={{ marginBottom: "-2px", marginRight: "5px" }} onClick={actions.theme.setThemeColorWhite} />
+                <GoTerminal color="#0f0" style={{ marginBottom: "-2px", marginRight: "10px", cursor: "pointer" }} onClick={actions.theme.setThemeColorGreen} />
+                <GoTerminal color="red" style={{ marginBottom: "-2px", marginRight: "10px", cursor: "pointer" }} onClick={actions.theme.setThemeColorRed} />
+                <GoTerminal color="#1DBAFE" style={{ marginBottom: "-2px", marginRight: "10px", cursor: "pointer" }} onClick={actions.theme.setThemeColorBlue} />
+                <GoTerminal color="#dbf962" style={{ marginBottom: "-2px", marginRight: "10px", cursor: "pointer" }} onClick={actions.theme.setThemeColorYellow} />
+                <GoTerminal color="#0ff" style={{ marginBottom: "-2px", marginRight: "10px", cursor: "pointer" }} onClick={actions.theme.setThemeColorTeal} />
             </ColorChoice>
             <FooterText>
               <FaCode color={themeColor} style={{ marginBottom: "-2px" }} /> with <GiHeartOrgan color="red" style={{ marginBottom: "-2px" , animation: "pulsate 1.4s linear infinite" }} /> and <GiBrain color="pink" style={{ marginBottom: "-2px" }} /> by Divaksh
@@ -60,7 +59,7 @@ const FooterText = styled.div`
 const ColorChoice = styled.div`
     grid-area: colorchoice / colorchoice / colorchoice / colorchoice;
     width: 100%;
-    font-size: 20px;
+    font-size: 22px;
     margin: auto;
     padding: 2px 0 0 24px;
     text-align: left;
