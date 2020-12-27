@@ -24,6 +24,10 @@ const CustomLink = ({ children, ...props }) => {
    * A handler that closes the mobile menu when a link is clicked.
    */
   const onClick = () => {
+
+    //Scroll to the PostCotainer top when a link is clicked
+    document.getElementById("content-container").scrollTo(0,0);
+
     if (state.theme.isMobileMenuOpen) {
       actions.theme.closeMobileMenu();
     }
