@@ -105,6 +105,10 @@ const ContentContainer = css`
 
 const Footer = css`
     #footer{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
         border-top: 1px solid #333;
         box-shadow: 1px 1px 0.5em black inset;
     }
