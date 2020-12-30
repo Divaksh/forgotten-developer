@@ -55,7 +55,6 @@ const Theme = ({ state, actions }) => {
             <div id="content-container">
               <Switch>
                 <Loading when={data.isFetching} />
-              {/*   <Home when={data.isHome} />  */}
                 <List when={data.isArchive} />
                 <Post when={data.isPostType} />
                 <PageError when={data.isError} />

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
+import ColorTheme from "./theme";
 
 /**
  * Navigation Component
@@ -9,18 +10,23 @@ import Link from "./link";
  */
 const Nav = ({ state }) => (
   <NavContainer color={state.theme.colors.themeColor}>
-    {state.theme.menu.map(([name, link]) => {
-      // Check if the link matched the current page url
-      const isCurrentPage = state.router.link === link;
-      return (
-        <NavItem key={name}>
-          {/* If link url is the current page, add `aria-current` for a11y */}
-          <Link link={link} aria-current={isCurrentPage ? "page" : undefined}>
-            {name}
-          </Link>
-        </NavItem>
-      );
-    })}
+    <NavItems>
+      {state.theme.menu.map(([name, link]) => {
+        // Check if the link matched the current page url
+        const isCurrentPage = state.router.link === link;
+        return (
+          <NavItem key={name}>
+            {/* If link url is the current page, add `aria-current` for a11y */}
+            <Link link={link} aria-current={isCurrentPage ? "page" : undefined}>
+              {name}
+            </Link>
+          </NavItem>
+        );
+      })}
+    </NavItems>
+            <ColorItems>
+                <ColorTheme/>
+            </ColorItems>
   </NavContainer>
 );
 
@@ -28,6 +34,11 @@ export default connect(Nav);
 
 const NavContainer = styled.nav`
 /* define a fixed width for the entire menu */
+  display: grid;
+  grid-template-rows: 1fr 32px;
+  grid-template-areas:
+  "navitems"
+  "coloritems";
   padding: 12px 24px;
   width: 200px;
   height: calc(100vh - 90px); /* header + footer */
@@ -94,5 +105,12 @@ a:hover::before {
 `;
 
 const NavItem = styled.div`
+`;
 
+const NavItems = styled.div`
+  grid-area: navitems / navitems / navitems / navitems;
+`;
+
+const ColorItems = styled.div`
+  grid-area: coloritems / coloritems / coloritems / coloritems;
 `;

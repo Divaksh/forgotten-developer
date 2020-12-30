@@ -3,7 +3,8 @@ import { connect, styled } from "frontity";
 import { FaCode, FaCircle } from "react-icons/fa";
 import { GiHeartOrgan } from "react-icons/gi";
 import { GiBrain } from "react-icons/gi";
-import { GoTerminal } from "react-icons/go";
+import ColorTheme from "./theme";
+
 
 const Footer = ({state, actions}) => {
   // Get the theme color.
@@ -11,13 +12,6 @@ const Footer = ({state, actions}) => {
 
     return (
         <Container>
-            <ColorChoice>
-                <GoTerminal color="#0f0" style={{ marginBottom: "-2px", marginRight: "10px", cursor: "pointer" }} onClick={actions.theme.setThemeColorGreen} />
-                <GoTerminal color="red" style={{ marginBottom: "-2px", marginRight: "10px", cursor: "pointer" }} onClick={actions.theme.setThemeColorRed} />
-                <GoTerminal color="#1DBAFE" style={{ marginBottom: "-2px", marginRight: "10px", cursor: "pointer" }} onClick={actions.theme.setThemeColorBlue} />
-                <GoTerminal color="#dbf962" style={{ marginBottom: "-2px", marginRight: "10px", cursor: "pointer" }} onClick={actions.theme.setThemeColorYellow} />
-                <GoTerminal color="#0ff" style={{ marginBottom: "-2px", marginRight: "10px", cursor: "pointer" }} onClick={actions.theme.setThemeColorTeal} />
-            </ColorChoice>
             <FooterText>
               <FaCode color={themeColor} style={{ marginBottom: "-2px" }} /> with <GiHeartOrgan color="red" style={{ marginBottom: "-2px" , animation: "pulsate 1.4s linear infinite" }} /> and <GiBrain color={themeColor=="red" ? "red" : "pink" } style={{ marginBottom: "-2px" }} /> by Divaksh
             </FooterText>
@@ -52,19 +46,6 @@ const FooterText = styled.div`
     text-align: right;
     @media screen and (max-width: 768px) {
         padding: 0;
-        text-align: center;
-    }
-`;
-
-const ColorChoice = styled.div`
-    grid-area: colorchoice / colorchoice / colorchoice / colorchoice;
-    width: 100%;
-    font-size: 22px;
-    margin: auto;
-    padding: 2px 0 0 24px;
-    text-align: left;
-    @media screen and (max-width: 768px) {
-        padding: 5px 0 0 0;
         text-align: center;
     }
 `;
