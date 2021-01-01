@@ -1,16 +1,23 @@
 {
-  "name": "divakshcom",
+  "name": "forgotten-developer",
   "version": "1.0.0",
   "private": true,
-  "description": "Frontity project for divaksh.com",
+  "description": "A terminal like theme for Frontity.",
   "keywords": [
-    "frontity"
+    "frontity",
+    "divaksh",
+    "forgotten",
+    "developer",
+    "terminal"
   ],
   "scripts": {
     "dev": "frontity dev",
     "build": "frontity build",
     "serve": "frontity serve"
   },
+  "homepage": "https://github.com/divaksh/forgotten-developer#readme",
+  "license": "GPL-2.0-or-later",
+  "author": "Divaksh Jain",
   "prettier": {},
   "dependencies": {
     "@frontity/core": "^1.9.1",
@@ -23,7 +30,6 @@
     "@frontity/yoast": "^2.0.1",
     "forgotten-developer": "file:packages/forgotten-developer",
     "frontity": "^1.13.0",
-    "my-package": "0.0.0",
     "prismjs": "^1.22.0",
     "react-icons": "^4.1.0",
     "yarn": "^1.22.10"

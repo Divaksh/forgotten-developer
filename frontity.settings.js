@@ -1,5 +1,5 @@
 const settings = {
-  name: "divakshcom",
+  name: "forgotten-developer",
   state: {
     frontity: {
       url: "https://divaksh.com",

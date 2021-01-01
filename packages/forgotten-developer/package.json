@@ -1,13 +1,17 @@
 {
   "name": "forgotten-developer",
   "version": "1.0.0",
-  "description": "A console like theme created for divaksh.com",
+  "description": "A terminal like theme for Frontity.",
   "keywords": [
     "frontity",
-    "frontity-theme"
+    "frontity-theme",
+    "forgotten",
+    "developer",
+    "terminal"
   ],
-  "homepage": "https://divaksh.com",
-  "license": "Apache-2.0",
+  "homepage": "https://github.com/divaksh/forgotten-developer#readme",
+  "license": "GPL-2.0-or-later",
+  "author": "Divaksh Jain",
   "repository": {
     "type": "git",
     "url": "https://github.com/Divaksh/forgotten-developer.git"
