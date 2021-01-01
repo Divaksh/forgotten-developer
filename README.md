@@ -23,7 +23,7 @@ The theme is amazingly simple but unique which is dedicated to developers and ge
  - Create a Frontity project named `developer-blog` with **Forgotten Developer theme**
  
 ```sh
-npx frontity create --theme @divaksh/forgotten-developer developer-blog
+npx frontity create --theme forgotten-developer developer-blog
 ```
  -  The CLI will run its part and once completed, run the project and have fun! 🎉
 ```sh
@@ -33,7 +33,7 @@ cd developer-blog && npx frontity dev
 ## Advanced usage
 
 ```sh
-npm i @divaksh/forgotten-developer
+npm i forgotten-developer
 ```
 
 Once installed it should be included in your `frontity.settings.js`.
@@ -41,7 +41,7 @@ The theme options can be specified in the `state.theme` property.
 
 ```javascript
 {
-  name: "@divaksh/forgotten-developer",
+  name: "forgotten-developer",
   state: {
     theme: {
       menu: [
