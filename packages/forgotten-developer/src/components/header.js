@@ -7,8 +7,7 @@ import MobileMenu from "./menu";
 const Header = ({ state }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
-  // Get the data of the post.
-  const post = state.source[data.type][data.id];
+
   // Get the theme color.
   const { themeColor } = state.theme.colors;
 
@@ -47,7 +46,7 @@ const Header = ({ state }) => {
               {/* Show sticky post title for the post page*/}
               {data.isPost && (
                 <StickyPostTitle
-                  dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                  dangerouslySetInnerHTML={{ __html: state.source[data.type][data.id].title.rendered }}
                 />
               )}
            </>
