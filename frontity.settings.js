@@ -21,6 +21,7 @@ const settings = {
             ["Git", "/git/"],
             ["HTTP", "/http/"],
             ["Java", "/java/"],
+            ["JavaScript", "/javascript/"],
           ],
           featured: {
             showOnList: false,
