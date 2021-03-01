@@ -40,7 +40,7 @@ const Theme = ({ state, actions }) => {
       ></link>
 
       {/* Styling for Syntax Highlighting*/}
-      <link rel="stylesheet" href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.min.css" />
 
       {/* Main container of the site that contains everything in the page. */}
       <div id="container">
