@@ -224,10 +224,11 @@ const Content = styled.div`
   
   td,
   th {
-    padding-bottom: 2%;
-    padding-top: 2%;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    word-break: normal !important;
   }
   
   /* Background-color of the odd rows */
