@@ -15,10 +15,9 @@ const Post = ({ state, actions, libraries }) => {
   // Get a human readable date.
   const date = new Date(post.date);
   // Get the data of the category.
-  const category = state.source.category[post.categories[0]]
+  const category = state.source.category[post.categories[0]];
   // Get the theme color.
   const { themeColor } = state.theme.colors;
-
 
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
@@ -38,7 +37,7 @@ const Post = ({ state, actions, libraries }) => {
     <>
       <Container>
         <div>
-        <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+          <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
           {/* Only display author and date on posts */}
           {data.isPost && (
@@ -53,7 +52,7 @@ const Post = ({ state, actions, libraries }) => {
               */}
               <DateWrapper>
                 {" "}
-                Compiled on <b>{date.toDateString().replace(/^\S+\s/,'')}</b>
+                Compiled on <b>{date.toDateString().replace(/^\S+\s/, "")}</b>
               </DateWrapper>
               <PublishIn>
                 {" in "}
@@ -67,18 +66,18 @@ const Post = ({ state, actions, libraries }) => {
           )}
         </div>
 
-      {/* Look at the settings to see if we should include the featured image */}
-      {state.theme.featured.showOnPost && (
-        <FeaturedMedia id={post.featured_media} />
-      )}
+        {/* Look at the settings to see if we should include the featured image */}
+        {state.theme.featured.showOnPost && (
+          <FeaturedMedia id={post.featured_media} />
+        )}
 
-      {/* Render the content using the Html2React component so the HTML is processed
+        {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
-      <Content color={themeColor}>
-        <Html2React html={post.content.rendered} />
-      </Content>
-      <Comments postId={post.id} />
-    </Container>
+        <Content color={themeColor}>
+          <Html2React html={post.content.rendered} />
+        </Content>
+        <Comments postId={post.id} />
+      </Container>
     </>
   ) : null;
 };
@@ -173,10 +172,11 @@ const Content = styled.div`
 
   /* code block styles */
 
-  :not(pre) > code[class*="language-"], pre[class*="language-"] {
+  :not(pre) > code[class*="language-"],
+  pre[class*="language-"] {
     background: rgba(40, 41, 54, 1);
-    border-radius: .75em;
-    border: .3em solid hsl(0, 0%, 33%);
+    border-radius: 0.75em;
+    border: 0.3em solid hsl(0, 0%, 33%);
     box-shadow: 1px 1px 0.5em black inset;
   }
 
@@ -184,7 +184,8 @@ const Content = styled.div`
     background: hsl(0, 0%, 8%) !important;
   }
 
-  code[class*="language-"], pre[class*="language-"] {
+  code[class*="language-"],
+  pre[class*="language-"] {
     background: hsl(0, 0%, 8%) !important;
   }
 
@@ -196,7 +197,7 @@ const Content = styled.div`
   pre::-webkit-scrollbar-thumb:hover {
     background-color: ${(props) => props.color};
     border-radius: 15px;
-  } 
+  }
 
   pre::-webkit-scrollbar-track {
     background-color: transparent;
@@ -205,70 +206,60 @@ const Content = styled.div`
 
   /* table styles */
 
-  .tablepress, .wp-block-table {
-    text-align: left;
-    min-width: 60%;
-    max-width: 80%;
-    margin: 0 auto;
-    display: table;
-    padding: 1em 5px 1em 5px;
+  table {
+    table-layout: auto !important;
   }
 
-  td {
-    font-weight: normal;
-    font-size: 1em;
-    -webkit-box-shadow: 0 2px 2px -2px #0E1119;
-    -moz-box-shadow: 0 2px 2px -2px #0E1119;
-    box-shadow: 0 2px 2px -2px #0E1119;
+  .tablepress,
+  .wp-block-table {
+    text-align: left;
+    padding: 5px;
+    word-break: normal !important;
+    overflow-x: auto;
   }
-  
+
   td,
   th {
-    padding-bottom: 1%;
-    padding-top: 1%;
-    padding-left: 1%;
-    padding-right: 1%;
-    word-break: normal !important;
-    width: fit-content;
+    padding: 10px !important;
   }
-  
+
   /* Background-color of the odd rows */
   tr:nth-child(odd) {
-    background-color: #323C50;
+    background-color: #323c50;
   }
-  
+
   /* Background-color of the even rows */
   tr:nth-child(even) {
-    background-color: #2C3446;
+    background-color: #2c3446;
   }
-  
+
   th {
-    background-color: #1F2739;
+    background-color: #1f2739;
   }
-  
+
   td:first-child {
     color: ${(props) => props.color};
   }
-  
+
   tr:hover {
-    background-color: #464A52;
-    -webkit-box-shadow: 0 6px 6px -6px #0E1119;
-    -moz-box-shadow: 0 6px 6px -6px #0E1119;
-    box-shadow: 0 6px 6px -6px #0E1119;
+    background-color: #464a52;
+    -webkit-box-shadow: 0 6px 6px -6px #0e1119;
+    -moz-box-shadow: 0 6px 6px -6px #0e1119;
+    box-shadow: 0 6px 6px -6px #0e1119;
   }
-  
+
   td:hover {
     background-color: ${(props) => props.color};
     color: #000;
     font-weight: bold;
-    box-shadow: #000 -1px 1px, #000 -2px 2px, #000 -3px 3px, #000 -4px 4px, #000 -5px 5px, #000 -6px 6px;
-    transform: translate3d(6px,-6px,0);
+    box-shadow: #000 -1px 1px, #000 -2px 2px, #000 -3px 3px, #000 -4px 4px,
+      #000 -2px 2px, #000 -3px 3px;
+    transform: translate3d(3px, -3px, 0);
     transition-delay: 0s;
-    transition-duration: .4s;
+    transition-duration: 0.3s;
     transition-property: all;
     transition-timing-function: line;
   }
-
 `;
 
 const PublishIn = styled.span`
