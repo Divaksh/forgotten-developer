@@ -229,6 +229,7 @@ const Content = styled.div`
     padding-left: 1%;
     padding-right: 1%;
     word-break: normal !important;
+    width: fit-content;
   }
   
   /* Background-color of the odd rows */
