@@ -7,8 +7,8 @@ const settings = {
       description: "A retired developer back in action",
     },
     sitemap: {
-      origin: "https://api.divaksh.com/post-sitemap.xml"
-    }
+      origin: "https://api.divaksh.com/post-sitemap.xml",
+    },
   },
   packages: [
     {
@@ -39,13 +39,13 @@ const settings = {
       },
     },
     {
-      name: "@frontity/google-analytics",
+      name: "@frontity/google-tag-manager-analytics",
       state: {
-          googleAnalytics: {
-              trackingId: 'G-DSQ1D0P3NL'
-          },
+        googleTagManagerAnalytics: {
+          containerId: "GTM-PR37KJ3",
+        },
       },
-  },
+    },
     "@frontity/tiny-router",
     "@frontity/html2react",
     "@frontity/head-tags",
