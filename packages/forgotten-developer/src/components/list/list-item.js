@@ -15,7 +15,7 @@ const Item = ({ state, item }) => {
   // Get the data of the author.
   const author = state.source.author[item.author];
   // Get the data of the category.
-  const category = state.source.category[item.categories[0]]
+  const category = state.source.category[item.categories[0]];
   // Get the date of the post.
   const date = new Date(item.date);
   return (
@@ -28,7 +28,7 @@ const Item = ({ state, item }) => {
 
       <div>
         {/* If the post has an author, we render a clickable author text. */}
- {/*        {author && (
+        {/*        {author && (
           <StyledLink link={author.link}>
             <AuthorName>
               By <b>{author.name}</b>
@@ -37,7 +37,7 @@ const Item = ({ state, item }) => {
         )}
 */}
         <PublishDate>
-          Compiled on <b>{date.toDateString().replace(/^\S+\s/,'')}</b>
+          Compiled on <b>{date.toDateString().replace(/^\S+\s/, "")}</b>
         </PublishDate>
         <PublishIn>
           {" in "}
@@ -74,7 +74,7 @@ const Title = styled.h1`
   padding-bottom: 8px;
   box-sizing: border-box;
 
-  && ::before {
+  &::before {
     font-size: 26px;
     color: #fff;
     content: "cd ";
@@ -84,7 +84,7 @@ const Title = styled.h1`
     transition: letter-spacing 0.3s ease-out, opacity 0.3s ease-out;
     text-decoration: none;
   }
-  && :hover::before {
+  &:hover::before {
     text-indent: 0px;
     letter-spacing: normal;
     opacity: 1;
