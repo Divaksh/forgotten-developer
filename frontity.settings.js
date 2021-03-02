@@ -39,10 +39,10 @@ const settings = {
       },
     },
     {
-      name: "@frontity/google-tag-manager-analytics",
+      name: "@frontity/google-analytics",
       state: {
-        googleTagManagerAnalytics: {
-          containerId: "GTM-PR37KJ3",
+        googleAnalytics: {
+          trackingId: "UA-89697929-3",
         },
       },
     },
