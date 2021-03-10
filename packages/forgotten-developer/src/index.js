@@ -5,6 +5,14 @@ import link from "@frontity/html2react/processors/link";
 
 import prismProcessor from "./processors/prism";
 
+const callbackHandler = {
+  pattern: "/callback/",
+  priority: 10,
+  func: ({ state }) => {
+    state.source.data["/callback/"].isCallback = true;
+  },
+};
+
 const categoryHandler = {
   /**
    *  To use category without slug custom handler with
@@ -12,22 +20,22 @@ const categoryHandler = {
    */
   name: "categoryOrPostType",
   priority: 19,
-  pattern: "/(.*)?/:slug", 
+  pattern: "/(.*)?/:slug",
   func: async ({ route, params, state, libraries }) => {
     // 1. try with category.
     try {
       const category = libraries.source.handlers.find(
-        handler => handler.name == "category"
+        (handler) => handler.name == "category"
       );
       await category.func({ route, params, state, libraries });
     } catch (e) {
       // It's not a category
       const postType = libraries.source.handlers.find(
-        handler => handler.name == "post type"
+        (handler) => handler.name == "post type"
       );
       await postType.func({ link: route, params, state, libraries });
     }
-  }
+  },
 };
 
 const forgottenDeveloper = {
@@ -94,7 +102,8 @@ const forgottenDeveloper = {
   },
   libraries: {
     source: {
-      handlers: [categoryHandler],
+      // Add the handler to wp-source.
+      handlers: [categoryHandler, callbackHandler],
     },
     html2react: {
       /**

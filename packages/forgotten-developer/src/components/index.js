@@ -12,6 +12,7 @@ import Title from "./title";
 import PageError from "./page-error";
 import Nav from "./nav";
 import Footer from "./footer";
+import Callback from "./callback";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -56,6 +57,7 @@ const Theme = ({ state, actions }) => {
           <div id="content-container">
             <Switch>
               <Loading when={data.isFetching} />
+              <Callback when={data.isCallback} />
               <List when={data.isArchive} />
               <Post when={data.isPost} />
               <Page when={data.isPage} />

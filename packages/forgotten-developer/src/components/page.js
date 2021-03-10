@@ -3,7 +3,6 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
-import CallPage from "./callpage";
 
 const Page = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -29,7 +28,6 @@ const Page = ({ state, actions, libraries }) => {
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <>
-      <CallPage />
       <Container>
         <div>
           <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />

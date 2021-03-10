@@ -22,6 +22,7 @@ const settings = {
             ["HTTP", "/http/"],
             ["Java", "/java/"],
             ["JavaScript", "/javascript/"],
+            ["Callback", "/callback/"],
           ],
           featured: {
             showOnList: false,
