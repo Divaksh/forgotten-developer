@@ -40,18 +40,20 @@ const Callback = ({ state }) => {
     );
     xhr.send(data);
 
-    var timeleft = 28;
-    var downloadTimer = setInterval(function () {
-      if (timeleft <= 2) {
-        clearInterval(downloadTimer);
-        document.getElementById("countdown").innerHTML =
-          "Your phone should be ringing by now, if not I'll call you again after a while.";
-      } else {
-        document.getElementById("countdown").innerHTML =
-          "Please wait " + timeleft + " seconds, I'm dialing your number. 🤙🏻";
-      }
-      timeleft -= 1;
-    }, 1000);
+    if (responseMessage.errorCode == 0) {
+      var timeleft = 28;
+      var downloadTimer = setInterval(function () {
+        if (timeleft <= 2) {
+          clearInterval(downloadTimer);
+          document.getElementById("countdown").innerHTML =
+            "Your phone should be ringing by now, if not I'll call you again after a while.";
+        } else {
+          document.getElementById("countdown").innerHTML =
+            "Please wait " + timeleft + " seconds, I'm dialing your number. 🤙🏻";
+        }
+        timeleft -= 1;
+      }, 1000);
+    }
   };
 
   return (
@@ -117,6 +119,7 @@ const CallbackForm = styled.div`
         "message button";
         @media screen and (max-width: 768px) {
             grid-template-areas:
+                "title title"
                 "number number"
                 "message message"
                 ". button";
@@ -152,15 +155,16 @@ const CallbackForm = styled.div`
         transition: inherit;
         box-sizing:border-box;
         width: 100%;
-        font-size: 22px;
     }
 
     .input input, .input textarea {
       padding: 15px;
+      font-size: 26px;
     }
 
     input[type=submit] {
       padding: 10px;
+      font-size: 24px;
     }
 
     .input input:focus,.input textarea:focus {
@@ -183,6 +187,7 @@ const CallbackForm = styled.div`
         user-select: none;
         transition: inherit;
         text-decoration: none;
+        font-size: 26px;
     }
 
     .input input:focus + a,
@@ -192,7 +197,7 @@ const CallbackForm = styled.div`
         top: -25px;
         left: 0px;
         height: 15px;
-        font-size: 22px;
+        font-size: 26px;
         }
 
     .input input:focus + a,
