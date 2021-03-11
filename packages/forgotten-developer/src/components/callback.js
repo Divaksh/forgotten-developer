@@ -22,7 +22,6 @@ const Callback = ({ state }) => {
     const data = JSON.stringify({
       id: 44586,
       tel: E164covertor(number),
-      department_id: 1,
     });
 
     const xhr = new XMLHttpRequest();
@@ -34,12 +33,12 @@ const Callback = ({ state }) => {
     };
 
     xhr.open("POST", "https://core.callpage.io/api/v1/external/widgets/call");
-    xhr.setRequestHeader("content-type", "application/json");
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Content-type", "application/json");
     xhr.setRequestHeader(
-      "authorization",
-      "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE2MTUyOTU5NDQsImp0aSI6IllXMGtSVjRKcWlHajgtZVlyYUJxRGFGUERlMlkzMXFxZGp5YmR4dVB4TU0iLCJkYXRhIjoie1wid2lkZ2V0X2lkc1wiOls0NDU4Nl0sXCJudW1iZXJfaWRzXCI6W10sXCJzY29wZXNcIjpbXCJ3aWRnZXRzLmNhbGxcIl19In0.W_LrRy7YsDz4C-76U8SKLmr1ZLqxaiABlnONOXrQAsaPIBJFfzzqH9wl76i6wtd_"
+      "Authorization",
+      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE2MTUyOTU5NDQsImp0aSI6IllXMGtSVjRKcWlHajgtZVlyYUJxRGFGUERlMlkzMXFxZGp5YmR4dVB4TU0iLCJkYXRhIjoie1wid2lkZ2V0X2lkc1wiOls0NDU4Nl0sXCJudW1iZXJfaWRzXCI6W10sXCJzY29wZXNcIjpbXCJ3aWRnZXRzLmNhbGxcIl19In0.W_LrRy7YsDz4C-76U8SKLmr1ZLqxaiABlnONOXrQAsaPIBJFfzzqH9wl76i6wtd_"
     );
-
     xhr.send(data);
   };
 
@@ -77,13 +76,13 @@ const Callback = ({ state }) => {
         </InputNumber>
 
         {/* If the form was submitted successfully we can show a confirmation */}
-        {responseMessage.hasError == false && (
+        {!responseMessage.hasError && (
           <SuccessMessage> {responseMessage.message} </SuccessMessage>
         )}
 
         {/* Show the REST API error messages.
             E.g. "Sorry, your request was not fulfilled." */}
-        {responseMessage.hasError == true && (
+        {responseMessage.hasError && (
           <ErrorMessage> {responseMessage.message} </ErrorMessage>
         )}
 
