@@ -33,7 +33,7 @@ const Callback = ({ state }) => {
 
     xhr.open("POST", "https://core.callpage.io/api/v1/external/widgets/call");
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader(
       "Authorization",
       "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE2MTU0NTYyMzYsImp0aSI6IkVsWVhUcnhLOEtVdjZiclhveW9WbFotNmdYOWlleTdudnZEUHR0VUR1RnMiLCJkYXRhIjoie1wid2lkZ2V0X2lkc1wiOls0NDU4Nl0sXCJudW1iZXJfaWRzXCI6W10sXCJzY29wZXNcIjpbXCJ3aWRnZXRzLmNhbGxcIixcIndpZGdldHMudmlld1wiXX0ifQ.dbeiF4hyJZydC_LEv9fwpxk36EL04xXi6WP_NQRuotrfoWyOhcbFH2dmqM8n0yW8"
