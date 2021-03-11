@@ -31,7 +31,7 @@ const Callback = ({ state }) => {
       }
     };
 
-    xhr.open("POST", "https://app.callpage.io/api/v1/external/widgets/call");
+    xhr.open("POST", "https://core.callpage.io/api/v1/external/widgets/call");
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.setRequestHeader(
