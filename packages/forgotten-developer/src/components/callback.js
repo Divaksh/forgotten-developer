@@ -5,7 +5,6 @@ const Callback = ({ state }) => {
   // Get the theme color.
   const { themeColor } = state.theme.colors;
 
-  const [fName, setFName] = useState("");
   const [number, setNumber] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
 
@@ -37,31 +36,33 @@ const Callback = ({ state }) => {
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.setRequestHeader(
       "Authorization",
-      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE2MTUyOTU5NDQsImp0aSI6IllXMGtSVjRKcWlHajgtZVlyYUJxRGFGUERlMlkzMXFxZGp5YmR4dVB4TU0iLCJkYXRhIjoie1wid2lkZ2V0X2lkc1wiOls0NDU4Nl0sXCJudW1iZXJfaWRzXCI6W10sXCJzY29wZXNcIjpbXCJ3aWRnZXRzLmNhbGxcIl19In0.W_LrRy7YsDz4C-76U8SKLmr1ZLqxaiABlnONOXrQAsaPIBJFfzzqH9wl76i6wtd_"
+      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE2MTU0NTYyMzYsImp0aSI6IkVsWVhUcnhLOEtVdjZiclhveW9WbFotNmdYOWlleTdudnZEUHR0VUR1RnMiLCJkYXRhIjoie1wid2lkZ2V0X2lkc1wiOls0NDU4Nl0sXCJudW1iZXJfaWRzXCI6W10sXCJzY29wZXNcIjpbXCJ3aWRnZXRzLmNhbGxcIixcIndpZGdldHMudmlld1wiXX0ifQ.dbeiF4hyJZydC_LEv9fwpxk36EL04xXi6WP_NQRuotrfoWyOhcbFH2dmqM8n0yW8"
     );
     xhr.send(data);
+
+    var timeleft = 28;
+    var downloadTimer = setInterval(function () {
+      if (timeleft <= 2) {
+        clearInterval(downloadTimer);
+        document.getElementById("countdown").innerHTML =
+          "Your phone should be ringing by now, if not I'll call you again after a while.";
+      } else {
+        document.getElementById("countdown").innerHTML =
+          "Please wait " + timeleft + " seconds, I'm dialing your number. 🤙🏻";
+      }
+      timeleft -= 1;
+    }, 1000);
   };
 
   return (
     <CallbackForm color={themeColor}>
       <h1>Let me call you back within 28 seconds.</h1>
-      <CallbacktFormHeader>
-        Just leave your name and your number with the country code and let the
-        magic happen.
-      </CallbacktFormHeader>
+
       <form onSubmit={callbackRequest}>
-        <InputName>
-          <div className="input">
-            <input
-              type="text"
-              name="name"
-              placeholder=" "
-              value={fName}
-              onChange={(e) => setFName(e.target.value)}
-            />
-            <a>Name</a>
-          </div>
-        </InputName>
+        <CallbacktFormHeader>
+          Let the magic happen just by leaving your your number with the country
+          code.
+        </CallbacktFormHeader>
         <InputNumber>
           <div className="input">
             <input
@@ -76,8 +77,10 @@ const Callback = ({ state }) => {
         </InputNumber>
 
         {/* If the form was submitted successfully we can show a confirmation */}
-        {!responseMessage.hasError && (
-          <SuccessMessage> {responseMessage.message} </SuccessMessage>
+        {responseMessage.errorCode == 0 && (
+          <SuccessMessage color={themeColor}>
+            <span id="countdown"></span>
+          </SuccessMessage>
         )}
 
         {/* Show the REST API error messages.
@@ -87,7 +90,7 @@ const Callback = ({ state }) => {
         )}
 
         <SubmitButton>
-          <input type="submit" value="SUBMIT" />
+          <input type="submit" value="CALL ME" />
         </SubmitButton>
       </form>
     </CallbackForm>
@@ -110,12 +113,11 @@ const CallbackForm = styled.div`
     gap: 15px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-        "name email"
+        "title number"
         "message button";
         @media screen and (max-width: 768px) {
             grid-template-areas:
-                "name name"
-                "email email"
+                "number number"
                 "message message"
                 ". button";
         }
@@ -146,11 +148,19 @@ const CallbackForm = styled.div`
         background: hsl(0, 0%, 8%) !important;
         font: inherit;
         color: inherit;
-        padding: 10px;
         outline: none;
         transition: inherit;
         box-sizing:border-box;
         width: 100%;
+        font-size: 22px;
+    }
+
+    .input input, .input textarea {
+      padding: 15px;
+    }
+
+    input[type=submit] {
+      padding: 10px;
     }
 
     .input input:focus,.input textarea:focus {
@@ -182,7 +192,7 @@ const CallbackForm = styled.div`
         top: -25px;
         left: 0px;
         height: 15px;
-        font-size: 18px;
+        font-size: 22px;
         }
 
     .input input:focus + a,
@@ -201,19 +211,16 @@ const CallbackForm = styled.div`
 `;
 
 const CallbacktFormHeader = styled.h2`
+  grid-area: title / title / title / title;
+  width: 100%;
   box-sizing: border-box;
   display: block;
   margin: 10px auto;
   padding: 10px 0;
 `;
 
-const InputName = styled.div`
-  grid-area: name / name / name / name;
-  width: 100%;
-`;
-
 const InputNumber = styled.div`
-  grid-area: email / email / email / email;
+  grid-area: number / number / number / number;
   width: 100%;
 `;
 
