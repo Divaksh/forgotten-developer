@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect, styled } from "frontity";
 
 const Callback = ({ state }) => {
@@ -7,6 +7,23 @@ const Callback = ({ state }) => {
 
   const [number, setNumber] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
+
+  useEffect(() => {
+    if (responseMessage.errorCode == 0) {
+      var timeleft = 28;
+      var downloadTimer = setInterval(function () {
+        if (timeleft <= 2) {
+          clearInterval(downloadTimer);
+          document.getElementById("countdown").innerHTML =
+            "Your phone should be ringing by now, if not I'll call you again after a while. ";
+        } else {
+          document.getElementById("countdown").innerHTML =
+            "Please wait " + timeleft + " seconds, I'm dialing your number. 🤙🏻";
+        }
+        timeleft -= 1;
+      }, 1000);
+    }
+  }, [responseMessage]);
 
   const callbackRequest = (e) => {
     e.preventDefault();
@@ -31,29 +48,9 @@ const Callback = ({ state }) => {
       }
     };
 
-    xhr.open("POST", "https://core.callpage.io/api/v1/external/widgets/call");
-    xhr.setRequestHeader("Accept", "application/json");
+    xhr.open("POST", "https://api.divaksh.com/callback/request.php");
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader(
-      "Authorization",
-      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE2MTU0NTYyMzYsImp0aSI6IkVsWVhUcnhLOEtVdjZiclhveW9WbFotNmdYOWlleTdudnZEUHR0VUR1RnMiLCJkYXRhIjoie1wid2lkZ2V0X2lkc1wiOls0NDU4Nl0sXCJudW1iZXJfaWRzXCI6W10sXCJzY29wZXNcIjpbXCJ3aWRnZXRzLmNhbGxcIixcIndpZGdldHMudmlld1wiXX0ifQ.dbeiF4hyJZydC_LEv9fwpxk36EL04xXi6WP_NQRuotrfoWyOhcbFH2dmqM8n0yW8"
-    );
     xhr.send(data);
-
-    if (responseMessage.errorCode == 0) {
-      var timeleft = 28;
-      var downloadTimer = setInterval(function () {
-        if (timeleft <= 2) {
-          clearInterval(downloadTimer);
-          document.getElementById("countdown").innerHTML =
-            "Your phone should be ringing by now, if not I'll call you again after a while.";
-        } else {
-          document.getElementById("countdown").innerHTML =
-            "Please wait " + timeleft + " seconds, I'm dialing your number. 🤙🏻";
-        }
-        timeleft -= 1;
-      }, 1000);
-    }
   };
 
   return (
@@ -240,7 +237,7 @@ const SuccessMessage = styled.div`
   color: #000;
   background-color: ${(props) => props.color};
   margin: 5px 0;
-  padding: 5px;
+  padding: 10px;
   display: inline-block;
   border-radius: 3px;
   font-weight: bold;
@@ -251,7 +248,7 @@ const ErrorMessage = styled.div`
   color: #000;
   background-color: #f00;
   margin: 5px 0;
-  padding: 5px;
+  padding: 10px;
   display: inline-block;
   border-radius: 3px;
   font-weight: bold;
