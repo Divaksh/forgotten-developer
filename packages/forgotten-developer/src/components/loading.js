@@ -93,6 +93,9 @@ const LoadingText = styled.span`
 
 const Container = styled.div`
   width: 800px;
+  @media screen and (max-width: 560px) {
+    width: auto;
+  }  
   margin: 0;
   padding: 24px;
   display: flex;
