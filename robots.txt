@@ -1,3 +1,3 @@
-Sitemap: https://api.divaksh.com/post-sitemap.xml
+Sitemap: https://cdn.divaksh.com/post-sitemap.xml
 User-agent: *
 Allow: /
