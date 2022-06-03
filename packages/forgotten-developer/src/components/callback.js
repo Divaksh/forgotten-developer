@@ -48,7 +48,7 @@ const Callback = ({ state }) => {
       }
     };
 
-    xhr.open("POST", "https://api.divaksh.com/callback/request.php");
+    xhr.open("POST", "https://cdn.divaksh.com/callback/request.php");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
   };
