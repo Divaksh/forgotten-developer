@@ -7,7 +7,7 @@ const settings = {
       description: "A retired developer back in action",
     },
     sitemap: {
-      origin: "https://api.divaksh.com/post-sitemap.xml",
+      origin: "https://cdn.divaksh.com/post-sitemap.xml",
     },
   },
   packages: [
@@ -35,7 +35,7 @@ const settings = {
       name: "@frontity/wp-source",
       state: {
         source: {
-          api: "https://api.divaksh.com/wp-json",
+          api: "https://cdn.divaksh.com/wp-json",
         },
       },
     },
