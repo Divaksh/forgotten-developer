@@ -25,8 +25,14 @@ const CustomLink = ({ children, ...props }) => {
    */
   const onClick = () => {
 
+    //Scroll to the PostCotainer top when back button is pressed
+    window.onpopstate = function(event) {
+      document.getElementById('content-container').scrollTo(0,0);
+    }
+
     //Scroll to the PostCotainer top when a link is clicked
-    document.getElementById("content-container").scrollTo(0,0);
+    document.getElementById('content-container').scrollTo(0,0);
+
 
     if (state.theme.isMobileMenuOpen) {
       actions.theme.closeMobileMenu();
