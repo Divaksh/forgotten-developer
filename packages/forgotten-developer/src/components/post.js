@@ -266,9 +266,9 @@ const PublishIn = styled.span`
   font-size: 16px !important;
 `;
 
-const Title = styled.h2`
-  display: none;
-
+const Title = styled.h1`
+  display: block;
+  margin-top: -10px !important;
   @media screen and (max-width: 768px) {
     display: block;
   }
